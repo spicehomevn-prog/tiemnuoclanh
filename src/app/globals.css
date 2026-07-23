@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design token overrides ── */
+:root {
+  /* Brand greens */
+  --green-forest: #34462F;
+  --green-forest-700: #3E5238;
+  --green-olive: #6B7645;
+  --green-olive-600: #7A8650;
+  --green-sage: #A7B89C;
+  --green-sage-200: #CBD5C1;
+  --green-sage-100: #E3E9DD;
+
+  /* Warm neutrals */
+  --off-white: #FAF6EE;
+  --beige: #E7DBC4;
+  --beige-200: #F0E8D8;
+  --sand: #D9CBAF;
+
+  /* Earth */
+  --terracotta: #CB7C5A;
+  --terracotta-soft: #E0A183;
+  --wood: #A9825A;
+
+  /* Ink */
+  --ink-900: #242C1F;
+  --ink-700: #3B4433;
+  --ink-500: #5E6653;
+  --ink-400: #838A78;
+  --cream: #F3EEE2;
+  --cream-dim: #C7CDB9;
+
+  /* Semantic aliases */
+  --surface-page: var(--off-white);
+  --surface-card: #FFFFFF;
+  --surface-panel: var(--beige-200);
+  --surface-inverse: var(--green-forest);
+  --text-heading: var(--ink-900);
+  --text-body: var(--ink-700);
+  --text-muted: var(--ink-500);
+  --text-on-inverse: var(--cream);
+  --text-on-inverse-dim: var(--cream-dim);
+  --brand-primary: var(--green-olive);
+  --brand-deep: var(--green-forest);
+  --brand-accent: var(--terracotta);
+  --border-subtle: #E4DCCB;
+  --border-strong: var(--sand);
+  --border-on-inverse: rgba(243,238,226,.24);
+
+  /* Spacing */
+  --container-max: 1200px;
+  --container-narrow: 720px;
+  --gutter: 1.5rem;
+
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(52,70,47,.06);
+  --shadow-sm: 0 2px 8px rgba(52,70,47,.07);
+  --shadow-md: 0 8px 24px rgba(52,70,47,.09);
+  --shadow-lg: 0 18px 48px rgba(52,70,47,.12);
+
+  /* Motion */
+  --ease-soft: cubic-bezier(.32,.72,.34,1);
+  --dur-fast: 140ms;
+  --dur: 240ms;
+  --dur-slow: 420ms;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #FAF6EE;
+    color: #3B4433;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #242C1F;
+    font-family: var(--font-display), Georgia, serif;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 700ms cubic-bezier(.32,.72,.34,1), transform 700ms cubic-bezier(.32,.72,.34,1);
+  }
+
+  .animate-fade-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

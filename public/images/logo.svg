@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 96" width="250" height="96" role="img" aria-label="Lành">
+  <defs>
+    
+  </defs>
+  <text x="6" y="66" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="70" fill="#34462F" letter-spacing="-1">Lành</text>
+  <g transform="translate(96,8) rotate(62)">
+    <path d="M2 12 C6 4 20 0 28 2 C25 12 10 15 2 12 Z" fill="#6B7645"></path>
+    <path d="M5 11 C12 8 20 5 26 3" stroke="#34462F" stroke-width="1.1" fill="none" stroke-linecap="round" opacity=".5"></path>
+  </g>
+</svg>
