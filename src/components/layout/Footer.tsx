@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10">
           {/* Brand col */}
           <div>
-            <Logo size={90} color="#FAF6EE" leafColor="#AFC08A" veinsColor="#34462F" />
+            <Logo size={90} variant="cream" />
             <p className="mt-4 mb-5 text-sm leading-relaxed text-cream-dim max-w-[30ch]">
               {t.tagline}
             </p>
