@@ -218,12 +218,15 @@ export default function DatHangPage() {
 
           {/* Zalo button */}
           <button
-            onClick={() => {
+            onClick={async () => {
               if (!canSend) {
                 setShowErrors(true)
                 document.getElementById('customer-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
                 return
               }
+              try { await navigator.clipboard.writeText(orderText) } catch {}
+              setCopied(true)
+              setTimeout(() => setCopied(false), 2000)
               setSent(true)
               window.open('https://zalo.me/84979804343', '_blank', 'noopener,noreferrer')
             }}
