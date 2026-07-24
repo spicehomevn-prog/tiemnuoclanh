@@ -125,7 +125,7 @@ export const content = {
   },
   footer: {
     vi: {
-      tagline: 'Đồ uống tự nhiên từ nguyên liệu thật. Nguyên chất mỗi ngày.',
+      tagline: 'Lành từ nguyên liệu, mát từ thiên nhiên.',
       newsletter: {
         label: 'Nhận ưu đãi & câu chuyện mới từ Lành.',
         placeholder: 'Email của bạn',
@@ -162,7 +162,7 @@ export const content = {
       copyright: '© 2026 Lành · Nguyên chất mỗi ngày.',
     },
     en: {
-      tagline: 'Natural drinks from real ingredients. Pure, every day.',
+      tagline: 'Wholesome ingredients, fresh from nature.',
       newsletter: {
         label: 'Get updates & stories from Lành.',
         placeholder: 'Your email',
