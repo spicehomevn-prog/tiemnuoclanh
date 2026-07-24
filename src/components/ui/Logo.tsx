@@ -38,7 +38,7 @@ export default function Logo({ size = 120, variant = 'default', className = '' }
       >
         Lanh
       </text>
-      <g transform="translate(59,15) rotate(-40) scale(0.66) translate(-22,-27)">
+      <g transform="translate(65,15) rotate(-40) scale(0.66) translate(-22,-27)">
         <path
           d="M22 3 C39 15 41 36 24 51 C23 51.6 21 51.6 20 51 C3 36 5 15 22 3 Z"
           fill={leaf}
