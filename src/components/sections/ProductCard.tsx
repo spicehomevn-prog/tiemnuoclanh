@@ -2,8 +2,7 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { Minus, Plus } from 'lucide-react'
+import { Minus, Plus, Check } from 'lucide-react'
 import { useLang } from '@/context/LanguageContext'
 import { useCart } from '@/context/CartContext'
 import { content } from '@/lib/content'
@@ -17,13 +16,14 @@ interface Props {
 export default function ProductCard({ product }: Props) {
   const { lang } = useLang()
   const { addToCart } = useCart()
-  const router = useRouter()
   const t = content.products[lang]
   const [qty, setQty] = useState(1)
+  const [added, setAdded] = useState(false)
 
   function handleAddToCart() {
     addToCart(product.id, qty)
-    router.push('/dat-hang')
+    setAdded(true)
+    setTimeout(() => setAdded(false), 1500)
   }
 
   return (
@@ -95,9 +95,14 @@ export default function ProductCard({ product }: Props) {
         {/* Add to cart */}
         <button
           onClick={handleAddToCart}
-          className="w-full py-3 text-sm font-semibold bg-forest text-cream rounded-pill hover:bg-ink-900 transition-colors duration-200 active:scale-[0.98]"
+          className={`w-full py-3 text-sm font-semibold rounded-pill transition-all duration-200 active:scale-[0.98] flex items-center justify-center gap-2 ${
+            added
+              ? 'bg-olive text-cream'
+              : 'bg-forest text-cream hover:bg-ink-900'
+          }`}
         >
-          {t.addToCart}
+          {added && <Check size={15} strokeWidth={2.5} />}
+          {added ? (lang === 'vi' ? 'Đã thêm!' : 'Added!') : t.addToCart}
         </button>
       </div>
     </div>
