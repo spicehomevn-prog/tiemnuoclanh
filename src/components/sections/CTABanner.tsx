@@ -19,12 +19,12 @@ export default function CTABanner() {
             {t.description}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <a
-              href={`tel:09798043430`}
+            <Link
+              href="/dat-hang"
               className="px-8 py-3 bg-cream text-olive font-semibold rounded-pill hover:bg-beige transition-colors duration-200 text-sm"
             >
               {t.primary}
-            </a>
+            </Link>
             <Link
               href="/lien-he"
               className="px-8 py-3 border border-cream/50 text-cream font-semibold rounded-pill hover:bg-cream/10 transition-colors duration-200 text-sm"
