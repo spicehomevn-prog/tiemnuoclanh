@@ -17,6 +17,9 @@ export default function DatHangPage() {
   const [phone, setPhone] = useState('')
   const [copied, setCopied] = useState(false)
   const [sent, setSent] = useState(false)
+  const [showErrors, setShowErrors] = useState(false)
+
+  const canSend = name.trim() !== '' && phone.trim() !== ''
 
   const cartItems = cart
     .map(item => {
@@ -81,25 +84,47 @@ export default function DatHangPage() {
         </h1>
 
         {/* Customer info */}
-        <section className="bg-white rounded-2xl border border-[#E4DCCB] p-5 sm:p-6 flex flex-col gap-4">
+        <section id="customer-section" className="bg-white rounded-2xl border border-[#E4DCCB] p-5 sm:p-6 flex flex-col gap-4">
           <h2 className="text-xs font-semibold uppercase tracking-[0.1em] text-olive">
             {t.customerSection}
           </h2>
-          <input
-            type="text"
-            value={name}
-            onChange={e => setName(e.target.value)}
-            placeholder={t.namePlaceholder}
-            className="w-full px-4 py-3.5 text-base border border-[#E4DCCB] rounded-xl bg-off-white text-ink-900 placeholder:text-ink-400 focus:outline-none focus:border-forest/60 transition-colors"
-          />
-          <input
-            type="tel"
-            inputMode="numeric"
-            value={phone}
-            onChange={e => setPhone(e.target.value)}
-            placeholder={t.phonePlaceholder}
-            className="w-full px-4 py-3.5 text-base border border-[#E4DCCB] rounded-xl bg-off-white text-ink-900 placeholder:text-ink-400 focus:outline-none focus:border-forest/60 transition-colors"
-          />
+          <div className="flex flex-col gap-1">
+            <input
+              type="text"
+              value={name}
+              onChange={e => { setName(e.target.value); setShowErrors(false) }}
+              placeholder={t.namePlaceholder + ' *'}
+              className={`w-full px-4 py-3.5 text-base rounded-xl bg-off-white text-ink-900 placeholder:text-ink-400 focus:outline-none transition-colors border ${
+                showErrors && !name.trim()
+                  ? 'border-red-400 focus:border-red-400'
+                  : 'border-[#E4DCCB] focus:border-forest/60'
+              }`}
+            />
+            {showErrors && !name.trim() && (
+              <p className="text-xs text-red-500 px-1">
+                {lang === 'vi' ? 'Vui lòng nhập họ và tên' : 'Please enter your name'}
+              </p>
+            )}
+          </div>
+          <div className="flex flex-col gap-1">
+            <input
+              type="tel"
+              inputMode="numeric"
+              value={phone}
+              onChange={e => { setPhone(e.target.value); setShowErrors(false) }}
+              placeholder={t.phonePlaceholder + ' *'}
+              className={`w-full px-4 py-3.5 text-base rounded-xl bg-off-white text-ink-900 placeholder:text-ink-400 focus:outline-none transition-colors border ${
+                showErrors && !phone.trim()
+                  ? 'border-red-400 focus:border-red-400'
+                  : 'border-[#E4DCCB] focus:border-forest/60'
+              }`}
+            />
+            {showErrors && !phone.trim() && (
+              <p className="text-xs text-red-500 px-1">
+                {lang === 'vi' ? 'Vui lòng nhập số điện thoại' : 'Please enter your phone number'}
+              </p>
+            )}
+          </div>
         </section>
 
         {/* Cart items */}
@@ -192,11 +217,16 @@ export default function DatHangPage() {
           </p>
 
           {/* Zalo button */}
-          <a
-            href="https://zalo.me/84979804343"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setSent(true)}
+          <button
+            onClick={() => {
+              if (!canSend) {
+                setShowErrors(true)
+                document.getElementById('customer-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                return
+              }
+              setSent(true)
+              window.open('https://zalo.me/84979804343', '_blank', 'noopener,noreferrer')
+            }}
             className="w-full flex items-center justify-center gap-3 py-4 text-base font-bold text-white rounded-xl shadow-md transition-all active:scale-[0.98] hover:brightness-110"
             style={{ backgroundColor: '#0068FF' }}
           >
@@ -213,7 +243,7 @@ export default function DatHangPage() {
               />
             </svg>
             {t.zaloButton}
-          </a>
+          </button>
 
           {/* Thank you message */}
           {sent && (
