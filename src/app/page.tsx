@@ -13,7 +13,7 @@ export default function HomePage() {
         <BrandIntro />
       </AnimateOnScroll>
       <AnimateOnScroll>
-        <ProductGrid limit={4} showHeader />
+        <ProductGrid showHeader />
       </AnimateOnScroll>
       <AnimateOnScroll>
         <StorySection />

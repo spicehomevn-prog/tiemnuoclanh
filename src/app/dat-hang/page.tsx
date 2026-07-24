@@ -6,7 +6,7 @@ import { ShoppingBag, Trash2, ArrowRight } from 'lucide-react'
 import { useLang } from '@/context/LanguageContext'
 import { useCart } from '@/context/CartContext'
 import { content } from '@/lib/content'
-import { products, formatPrice } from '@/lib/data/products'
+import { products, toppings, formatPrice } from '@/lib/data/products'
 
 export default function DatHangPage() {
   const { lang } = useLang()
@@ -28,22 +28,34 @@ export default function DatHangPage() {
     })
     .filter((item): item is NonNullable<typeof item> => item !== null)
 
+  const hasNullPrice = cartItems.some(item => item.product.price === null)
   const total = cartItems.reduce(
-    (sum, item) => sum + item.product.price * item.quantity,
+    (sum, item) => sum + (item.product.price ?? 0) * item.quantity,
     0
   )
+
+  function getToppingNames(ids: string[]) {
+    return ids
+      .map(id => toppings.find(t => t.id === id)?.name[lang] ?? id)
+      .join(', ')
+  }
 
   const orderText = [
     'ĐƠN HÀNG — Tiệm nước Lành',
     `Tên: ${name || '—'}`,
     `SĐT: ${phone || '—'}`,
     '---',
-    ...cartItems.map(
-      item =>
-        `- ${item.product.name[lang]} x${item.quantity} = ${formatPrice(item.product.price * item.quantity)}`
-    ),
+    ...cartItems.map(item => {
+      const toppingLine = item.toppings.length > 0
+        ? ` (Topping: ${getToppingNames(item.toppings)})`
+        : ''
+      const priceLine = item.product.price !== null
+        ? ` = ${formatPrice(item.product.price * item.quantity, lang)}`
+        : ''
+      return `- ${item.product.name[lang]} x${item.quantity}${toppingLine}${priceLine}`
+    }),
     '---',
-    `TỔNG: ${formatPrice(total)}`,
+    `TỔNG: ${hasNullPrice ? 'Tiệm sẽ báo giá' : formatPrice(total, lang)}`,
   ].join('\n')
 
   // Empty state
@@ -177,8 +189,13 @@ export default function DatHangPage() {
                   <p className="text-sm font-semibold text-ink-900 leading-snug">
                     {item.product.name[lang]}
                   </p>
+                  {item.toppings.length > 0 && (
+                    <p className="text-[11px] text-olive mt-0.5">
+                      + {getToppingNames(item.toppings)}
+                    </p>
+                  )}
                   <p className="text-xs text-ink-500 mt-0.5">
-                    {formatPrice(item.product.price)}
+                    {formatPrice(item.product.price, lang)}
                   </p>
                   {/* Qty stepper */}
                   <div className="flex items-center gap-0 mt-3 border border-[#E4DCCB] rounded-full overflow-hidden w-fit">
@@ -203,7 +220,7 @@ export default function DatHangPage() {
                 </div>
                 <div className="flex flex-col items-end gap-2 flex-shrink-0 pt-0.5">
                   <span className="text-sm font-semibold text-ink-900 whitespace-nowrap">
-                    {formatPrice(item.product.price * item.quantity)}
+                    {formatPrice(item.product.price !== null ? item.product.price * item.quantity : null, lang)}
                   </span>
                   <button
                     onClick={() => removeFromCart(item.productId)}
@@ -221,7 +238,7 @@ export default function DatHangPage() {
           <div className="flex justify-between items-center pt-4 border-t border-[#E4DCCB]">
             <span className="text-sm font-medium text-ink-700">{t.total}</span>
             <span className="text-2xl font-semibold font-display text-ink-900">
-              {formatPrice(total)}
+              {hasNullPrice ? (lang === 'vi' ? 'Tiệm báo giá' : 'TBA') : formatPrice(total, lang)}
             </span>
           </div>
         </section>

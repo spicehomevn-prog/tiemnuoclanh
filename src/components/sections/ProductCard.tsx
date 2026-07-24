@@ -7,7 +7,7 @@ import { useLang } from '@/context/LanguageContext'
 import { useCart } from '@/context/CartContext'
 import { content } from '@/lib/content'
 import type { Product } from '@/lib/data/products'
-import { formatPrice } from '@/lib/data/products'
+import { toppings, formatPrice } from '@/lib/data/products'
 
 interface Props {
   product: Product
@@ -18,10 +18,17 @@ export default function ProductCard({ product }: Props) {
   const { addToCart } = useCart()
   const t = content.products[lang]
   const [qty, setQty] = useState(1)
+  const [selectedToppings, setSelectedToppings] = useState<string[]>([])
   const [added, setAdded] = useState(false)
 
+  function toggleTopping(id: string) {
+    setSelectedToppings(prev =>
+      prev.includes(id) ? prev.filter(t => t !== id) : [...prev, id]
+    )
+  }
+
   function handleAddToCart() {
-    addToCart(product.id, qty)
+    addToCart(product.id, qty, selectedToppings)
     setAdded(true)
     setTimeout(() => setAdded(false), 1500)
   }
@@ -46,11 +53,11 @@ export default function ProductCard({ product }: Props) {
           <div className="w-[40%] h-[70%] rounded-t-[14px] rounded-b-[8px] border border-white/40 bg-white/20" />
         )}
 
-        {/* Badge */}
-        {product.badge && (
+        {/* Signature badge */}
+        {product.signature && (
           <div className="absolute top-3 left-3">
             <span className="text-[11px] font-semibold px-2.5 py-1 rounded-pill bg-forest text-cream">
-              {product.badge[lang]}
+              Signature
             </span>
           </div>
         )}
@@ -58,18 +65,44 @@ export default function ProductCard({ product }: Props) {
 
       {/* Info */}
       <div className="flex flex-col flex-1 p-4 gap-3">
-        <div className="flex-1">
-          <h3 className="font-display font-semibold text-[15px] text-ink-900 leading-snug">
-            {product.name[lang]}
-          </h3>
-          <p className="mt-1.5 text-xs leading-relaxed text-ink-500 line-clamp-2">
+        <h3 className="font-display font-semibold text-[15px] text-ink-900 leading-snug">
+          {product.name[lang]}
+        </h3>
+
+        {product.description[lang] && (
+          <p className="text-xs leading-relaxed text-ink-500 -mt-1">
             {product.description[lang]}
           </p>
-        </div>
+        )}
 
         <span className="font-semibold text-[15px] text-ink-900">
-          {formatPrice(product.price)}
+          {formatPrice(product.price, lang)}
         </span>
+
+        {/* Toppings */}
+        <div className="border-t border-[#F0EBE1] pt-3">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-ink-400 mb-2">
+            {lang === 'vi' ? 'Topping' : 'Toppings'}
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {toppings.map(top => {
+              const selected = selectedToppings.includes(top.id)
+              return (
+                <button
+                  key={top.id}
+                  onClick={() => toggleTopping(top.id)}
+                  className={`text-[11px] px-2.5 py-1 rounded-pill border transition-colors duration-150 ${
+                    selected
+                      ? 'bg-forest text-cream border-forest'
+                      : 'border-[#E4DCCB] text-ink-500 hover:border-forest/40'
+                  }`}
+                >
+                  {top.name[lang]}
+                </button>
+              )
+            })}
+          </div>
+        </div>
 
         {/* Qty stepper */}
         <div className="flex items-center gap-0 self-start border border-[#E4DCCB] rounded-pill overflow-hidden">

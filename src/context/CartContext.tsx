@@ -2,14 +2,15 @@
 
 import { createContext, useContext, useState, useEffect, useCallback } from 'react'
 
-interface CartItem {
+export interface CartItem {
   productId: string
   quantity: number
+  toppings: string[]
 }
 
 interface CartContextValue {
   cart: CartItem[]
-  addToCart: (productId: string, qty: number) => void
+  addToCart: (productId: string, qty: number, toppings: string[]) => void
   updateQty: (productId: string, qty: number) => void
   removeFromCart: (productId: string) => void
   clearCart: () => void
@@ -31,22 +32,20 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   }, [])
 
   useEffect(() => {
-    if (mounted) {
-      localStorage.setItem('lanh-cart', JSON.stringify(cart))
-    }
+    if (mounted) localStorage.setItem('lanh-cart', JSON.stringify(cart))
   }, [cart, mounted])
 
-  const addToCart = useCallback((productId: string, qty: number) => {
+  const addToCart = useCallback((productId: string, qty: number, toppings: string[]) => {
     setCart(prev => {
       const existing = prev.find(item => item.productId === productId)
       if (existing) {
         return prev.map(item =>
           item.productId === productId
-            ? { ...item, quantity: item.quantity + qty }
+            ? { ...item, quantity: item.quantity + qty, toppings }
             : item
         )
       }
-      return [...prev, { productId, quantity: qty }]
+      return [...prev, { productId, quantity: qty, toppings }]
     })
   }, [])
 
