@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { ShoppingBag, Trash2, Copy, CheckCheck, ArrowRight } from 'lucide-react'
+import { ShoppingBag, Trash2, ArrowRight } from 'lucide-react'
 import { useLang } from '@/context/LanguageContext'
 import { useCart } from '@/context/CartContext'
 import { content } from '@/lib/content'
@@ -15,7 +15,6 @@ export default function DatHangPage() {
 
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
-  const [copied, setCopied] = useState(false)
   const [sent, setSent] = useState(false)
   const [showErrors, setShowErrors] = useState(false)
   const [showModal, setShowModal] = useState(false)
@@ -46,14 +45,6 @@ export default function DatHangPage() {
     '---',
     `TỔNG: ${formatPrice(total)}`,
   ].join('\n')
-
-  async function handleCopy() {
-    try {
-      await navigator.clipboard.writeText(orderText)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    } catch {}
-  }
 
   // Empty state
   if (cartItems.length === 0 && !sent) {
@@ -235,24 +226,13 @@ export default function DatHangPage() {
           </div>
         </section>
 
-        {/* Copy + Zalo section */}
+        {/* Zalo section */}
         <section className="flex flex-col gap-4">
-          {/* Copy button */}
-          <button
-            onClick={handleCopy}
-            className="w-full flex items-center justify-center gap-2 py-4 text-sm font-semibold border-2 border-forest text-forest rounded-xl hover:bg-forest/5 transition-colors active:scale-[0.98]"
-          >
-            {copied ? (
-              <CheckCheck size={17} strokeWidth={2} />
-            ) : (
-              <Copy size={17} strokeWidth={2} />
-            )}
-            {copied ? t.copySuccess : t.copyButton}
-          </button>
-
           {/* Instruction */}
           <p className="text-sm text-ink-500 text-center leading-relaxed">
-            {t.instruction}
+            {lang === 'vi'
+              ? 'Bấm nút bên dưới để gửi đơn hàng qua Zalo — chúng mình sẽ xác nhận đơn và liên hệ bạn sớm nhất:'
+              : 'Tap the button below to send your order via Zalo — we will confirm and contact you shortly:'}
           </p>
 
           {/* Zalo button */}
@@ -264,8 +244,6 @@ export default function DatHangPage() {
                 return
               }
               try { await navigator.clipboard.writeText(orderText) } catch {}
-              setCopied(true)
-              setTimeout(() => setCopied(false), 2000)
               setShowModal(true)
             }}
             className="w-full flex items-center justify-center gap-3 py-4 text-base font-bold text-white rounded-xl shadow-md transition-all active:scale-[0.98] hover:brightness-110"
