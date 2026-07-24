@@ -29,9 +29,11 @@ export default function Hero() {
           <h1 className="font-display font-semibold text-[clamp(1.875rem,3.4vw,2.875rem)] leading-[1.15] text-ink-900 tracking-[-0.01em] mt-5 mb-0">
             {t.heading}
           </h1>
-          <p className="font-body text-base leading-relaxed text-ink-500 mt-5 max-w-[34ch]">
-            {t.description}
-          </p>
+          <div className="font-body text-base leading-relaxed text-ink-500 mt-5 max-w-[34ch] flex flex-col gap-3">
+            {t.description.split('\n\n').map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
+          </div>
         </div>
 
         {/* Col 2 — Product image placeholder */}

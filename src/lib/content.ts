@@ -23,7 +23,7 @@ export const content = {
     vi: {
       eyebrow: 'Nguyên liệu thật',
       heading: 'Lành từ nguyên liệu, mát từ thiên nhiên.',
-      description: 'Rau má, nước sâm và thảo mộc làm từ nguyên liệu thật — ít chế biến, không đường tinh luyện, không chất bảo quản.',
+      description: 'Chúng mình tin rằng sức khỏe bắt đầu từ những lựa chọn nhỏ mỗi ngày.\n\nMột ly nước được làm từ nguyên liệu tươi sạch, nguyên chất và được chuẩn bị cẩn thận có thể khiến một ngày bận rộn trở nên dễ chịu hơn.\n\nVì thế, Lành chọn làm mọi thứ đơn giản: nguyên liệu tuyển chọn, hương vị tự nhiên và sự chân thành trong từng ly nước.',
       featuredName: 'Rau Má Nguyên Chất',
       featuredDesc: 'Vị mát lành từ rau má tươi, cân bằng nhẹ nhàng cho ngày dài. Nguồn chất xơ và khoáng chất tự nhiên.',
       cta: 'Mua ngay',
@@ -32,7 +32,7 @@ export const content = {
     en: {
       eyebrow: 'Real Ingredients',
       heading: 'Wholesome ingredients, fresh from nature.',
-      description: 'Pennywort, herbal drinks, made from real ingredients — minimally processed, no refined sugar, no preservatives.',
+      description: 'We believe health starts with small choices every day.\n\nA drink made from fresh, pure ingredients — prepared with care — can make a busy day feel a little easier.\n\nSo Lành keeps it simple: real ingredients, natural flavour, and sincerity in every cup.',
       featuredName: 'Fresh Pennywort',
       featuredDesc: 'Cool and refreshing from fresh pennywort, a gentle balance for long days. A natural source of fiber and minerals.',
       cta: 'Buy Now',
