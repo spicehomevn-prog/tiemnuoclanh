@@ -18,6 +18,7 @@ export default function DatHangPage() {
   const [copied, setCopied] = useState(false)
   const [sent, setSent] = useState(false)
   const [showErrors, setShowErrors] = useState(false)
+  const [showModal, setShowModal] = useState(false)
 
   const canSend = name.trim() !== '' && phone.trim() !== ''
 
@@ -77,6 +78,44 @@ export default function DatHangPage() {
 
   return (
     <div className="bg-off-white min-h-screen">
+
+      {/* Modal */}
+      {showModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center px-4 pb-6 sm:pb-0"
+          style={{ backgroundColor: 'rgba(0,0,0,0.45)' }}
+        >
+          <div className="bg-white rounded-2xl w-full max-w-sm p-6 flex flex-col gap-5 shadow-xl">
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">✅</span>
+                <p className="text-base font-semibold text-forest leading-snug">
+                  {lang === 'vi' ? 'Đã tự động sao chép đơn hàng' : 'Order copied to clipboard'}
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-2xl">📋</span>
+                <p className="text-sm text-ink-700 leading-relaxed">
+                  {lang === 'vi'
+                    ? 'Bạn chỉ cần bấm nút Dán vào ô tin nhắn sau khi mở Zalo'
+                    : 'Just tap Paste into the message box after Zalo opens'}
+                </p>
+              </div>
+            </div>
+            <button
+              onClick={() => {
+                setShowModal(false)
+                setSent(true)
+                window.open('https://zalo.me/84979804343', '_blank', 'noopener,noreferrer')
+              }}
+              className="w-full py-4 text-base font-bold text-white rounded-xl transition-all active:scale-[0.98] hover:brightness-110 flex items-center justify-center gap-2"
+              style={{ backgroundColor: '#0068FF' }}
+            >
+              {lang === 'vi' ? 'Tiếp tục → Mở Zalo' : 'Continue → Open Zalo'}
+            </button>
+          </div>
+        </div>
+      )}
       <div className="max-w-2xl mx-auto px-4 sm:px-6 py-10 md:py-16 flex flex-col gap-6">
         {/* Page title */}
         <h1 className="font-display text-3xl md:text-4xl font-semibold text-ink-900">
@@ -227,8 +266,7 @@ export default function DatHangPage() {
               try { await navigator.clipboard.writeText(orderText) } catch {}
               setCopied(true)
               setTimeout(() => setCopied(false), 2000)
-              setSent(true)
-              window.open('https://zalo.me/84979804343', '_blank', 'noopener,noreferrer')
+              setShowModal(true)
             }}
             className="w-full flex items-center justify-center gap-3 py-4 text-base font-bold text-white rounded-xl shadow-md transition-all active:scale-[0.98] hover:brightness-110"
             style={{ backgroundColor: '#0068FF' }}
@@ -252,9 +290,7 @@ export default function DatHangPage() {
           {sent && (
             <div className="text-center py-6 px-5 bg-sage-100 rounded-2xl border border-sage-200 mt-2">
               <p className="text-base font-semibold text-forest">{t.thankYou}</p>
-              <p className="mt-1.5 text-sm text-ink-500 leading-relaxed">
-                {t.thankYouSub}
-              </p>
+              <p className="mt-1.5 text-sm text-ink-500 leading-relaxed">{t.thankYouSub}</p>
             </div>
           )}
         </section>
