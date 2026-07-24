@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
 import { LanguageProvider } from '@/context/LanguageContext'
+import { CartProvider } from '@/context/CartContext'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 
@@ -40,9 +41,11 @@ export default function RootLayout({
     <html lang="vi" className={`${fraunces.variable} ${ysabeau.variable}`}>
       <body className="bg-off-white font-body antialiased">
         <LanguageProvider>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
+          <CartProvider>
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+          </CartProvider>
         </LanguageProvider>
       </body>
     </html>

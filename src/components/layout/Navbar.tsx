@@ -2,13 +2,15 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ShoppingBag } from 'lucide-react'
 import { useLang } from '@/context/LanguageContext'
+import { useCart } from '@/context/CartContext'
 import { content } from '@/lib/content'
 import Logo from '@/components/ui/Logo'
 
 export default function Navbar() {
   const { lang, setLang } = useLang()
+  const { totalItems } = useCart()
   const t = content.nav[lang]
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -85,6 +87,20 @@ export default function Navbar() {
               </button>
             </div>
 
+            {/* Cart icon */}
+            <Link
+              href="/dat-hang"
+              className="relative p-2 text-ink-700 hover:text-forest transition-colors"
+              aria-label="Giỏ hàng"
+            >
+              <ShoppingBag size={20} strokeWidth={1.5} />
+              {totalItems > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] flex items-center justify-center rounded-full bg-forest text-cream text-[10px] font-bold px-1 leading-none">
+                  {totalItems}
+                </span>
+              )}
+            </Link>
+
             {/* CTA */}
             <Link
               href="/lien-he"
@@ -94,14 +110,28 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile hamburger */}
-          <button
-            className="md:hidden p-2 text-ink-700"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Menu"
-          >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          {/* Mobile: cart + hamburger */}
+          <div className="md:hidden flex items-center gap-1">
+            <Link
+              href="/dat-hang"
+              className="relative p-2 text-ink-700"
+              aria-label="Giỏ hàng"
+            >
+              <ShoppingBag size={20} strokeWidth={1.5} />
+              {totalItems > 0 && (
+                <span className="absolute top-0 right-0 min-w-[17px] h-[17px] flex items-center justify-center rounded-full bg-forest text-cream text-[10px] font-bold px-1 leading-none">
+                  {totalItems}
+                </span>
+              )}
+            </Link>
+            <button
+              className="p-2 text-ink-700"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Menu"
+            >
+              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile menu */}
