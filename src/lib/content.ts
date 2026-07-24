@@ -22,7 +22,7 @@ export const content = {
   hero: {
     vi: {
       eyebrow: 'Nguyên liệu thật',
-      heading: 'Uống một điều tốt cho bản thân mỗi ngày.',
+      heading: 'Lành từ nguyên liệu, mát từ thiên nhiên.',
       description: 'Rau má, nước sâm và thảo mộc làm từ nguyên liệu thật — ít chế biến, không đường tinh luyện, không chất bảo quản.',
       featuredName: 'Rau Má Nguyên Chất',
       featuredDesc: 'Vị mát lành từ rau má tươi, cân bằng nhẹ nhàng cho ngày dài. Nguồn chất xơ và khoáng chất tự nhiên.',
@@ -31,7 +31,7 @@ export const content = {
     },
     en: {
       eyebrow: 'Real Ingredients',
-      heading: 'Drink something good for yourself, every day.',
+      heading: 'Wholesome ingredients, fresh from nature.',
       description: 'Pennywort, herbal drinks, made from real ingredients — minimally processed, no refined sugar, no preservatives.',
       featuredName: 'Fresh Pennywort',
       featuredDesc: 'Cool and refreshing from fresh pennywort, a gentle balance for long days. A natural source of fiber and minerals.',
