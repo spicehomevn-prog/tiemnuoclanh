@@ -97,7 +97,7 @@ export default function ProductCard({ product }: Props) {
                       : 'border-[#E4DCCB] text-ink-500 hover:border-forest/40'
                   }`}
                 >
-                  {top.name[lang]}
+                  {top.name[lang]} <span className="opacity-60">+{(top.price/1000).toLocaleString('vi-VN')}k</span>
                 </button>
               )
             })}
