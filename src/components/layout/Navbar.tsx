@@ -10,7 +10,8 @@ import Logo from '@/components/ui/Logo'
 
 export default function Navbar() {
   const { lang, setLang } = useLang()
-  const { totalItems } = useCart()
+  const { cart } = useCart()
+  const totalItems = cart.reduce((s, i) => s + i.quantity, 0)
   const t = content.nav[lang]
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
