@@ -23,7 +23,7 @@ export default function ProductGrid({ showHeader = true, showAll = false }: Prop
       <section className="py-20 md:py-28 bg-off-white">
         <div className="max-w-container mx-auto px-6 flex flex-col gap-16">
           {/* SIGNATURE */}
-          <div>
+          <div id="must-try">
             <div className="flex items-center gap-4 mb-8">
               <span className="text-[15px] font-bold uppercase tracking-[0.14em] text-forest px-3 py-1.5 bg-forest/8 rounded-pill border border-forest/20">
                 Must Try
@@ -39,7 +39,7 @@ export default function ProductGrid({ showHeader = true, showAll = false }: Prop
             const catProducts = products.filter(p => p.categoryId === cat.id)
             if (catProducts.length === 0) return null
             return (
-              <div key={cat.id}>
+              <div key={cat.id} id={cat.id}>
                 <div className="flex items-center gap-4 mb-8">
                   <h2 className="text-[15px] font-bold uppercase tracking-[0.14em] text-ink-500">
                     {cat.name[lang]}

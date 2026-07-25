@@ -3,6 +3,7 @@ import ProductGrid from '@/components/sections/ProductGrid'
 import PageHero from '@/components/sections/PageHero'
 import CTABanner from '@/components/sections/CTABanner'
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll'
+import CategoryNav from '@/components/sections/CategoryNav'
 
 export const metadata: Metadata = {
   title: 'Sản phẩm — Lành',
@@ -13,6 +14,7 @@ export default function SanPhamPage() {
   return (
     <>
       <PageHero contentKey="sanPham" />
+      <CategoryNav />
       <ProductGrid showHeader={false} showAll />
       <AnimateOnScroll>
         <CTABanner />
