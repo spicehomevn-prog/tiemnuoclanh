@@ -32,7 +32,7 @@ export default function DatHangPage() {
 
   function itemTotal(item: typeof cartItems[0]) {
     const base = item.product.price ?? 0
-    const toppingCost = item.toppings.reduce(
+    const toppingCost = (item.toppings ?? []).reduce(
       (s, tid) => s + (toppings.find(t => t.id === tid)?.price ?? 0),
       0
     )
@@ -41,7 +41,7 @@ export default function DatHangPage() {
 
   const total = cartItems.reduce((sum, item) => sum + itemTotal(item), 0)
 
-  function getToppingNames(ids: string[]) {
+  function getToppingNames(ids: string[] = []) {
     return ids
       .map(id => toppings.find(t => t.id === id)?.name[lang] ?? id)
       .join(', ')

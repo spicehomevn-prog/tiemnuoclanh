@@ -27,8 +27,14 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     setMounted(true)
     try {
       const stored = localStorage.getItem('lanh-cart')
-      if (stored) setCart(JSON.parse(stored))
-    } catch {}
+      if (stored) {
+        const parsed = JSON.parse(stored)
+        // Migrate old cart items that may lack toppings field
+        setCart(parsed.map((item: CartItem) => ({ ...item, toppings: item.toppings ?? [] })))
+      }
+    } catch {
+      localStorage.removeItem('lanh-cart')
+    }
   }, [])
 
   useEffect(() => {
