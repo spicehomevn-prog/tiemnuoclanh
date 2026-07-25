@@ -13,9 +13,7 @@ export default function SanPhamPage() {
   return (
     <>
       <PageHero contentKey="sanPham" />
-      <AnimateOnScroll>
-        <ProductGrid showHeader={false} showAll />
-      </AnimateOnScroll>
+      <ProductGrid showHeader={false} showAll />
       <AnimateOnScroll>
         <CTABanner />
       </AnimateOnScroll>
