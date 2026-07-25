@@ -53,7 +53,6 @@ export const products: Product[] = [
   { id: 'dua-la-dua',   name: { vi: 'Dừa Lá Dứa',   en: 'Pandan Coconut' },       description: { vi: '', en: '' }, price: 22000, categoryId: 'dua-tuoi', swatch: '#F0E8D8', imageSrc: null },
 
   // ── CÀ PHÊ ──────────────────────────────────────────────────────────────────
-  { id: 'ca-phe-dua',     name: { vi: 'Cà Phê Dừa',     en: 'Coconut Coffee' },      description: { vi: '', en: '' }, price: 24000, categoryId: 'ca-phe', signature: true, swatch: '#D9CBAF', imageSrc: null },
   { id: 'ca-phe-den',     name: { vi: 'Cà Phê Đen',     en: 'Black Coffee' },        description: { vi: '', en: '' }, price: 15000, categoryId: 'ca-phe', swatch: '#D9CBAF', imageSrc: null },
   { id: 'ca-phe-sua',     name: { vi: 'Cà Phê Sữa',     en: 'Milk Coffee' },         description: { vi: '', en: '' }, price: 18000, categoryId: 'ca-phe', swatch: '#D9CBAF', imageSrc: null },
   { id: 'ca-phe-sua-dua', name: { vi: 'Cà Phê Sữa Dừa', en: 'Coconut Milk Coffee' }, description: { vi: '', en: '' }, price: 24000, categoryId: 'ca-phe', swatch: '#D9CBAF', imageSrc: null },
