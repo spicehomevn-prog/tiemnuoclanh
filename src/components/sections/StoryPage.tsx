@@ -63,7 +63,7 @@ export default function StoryPage() {
           <div className="max-w-container mx-auto rounded-xl bg-forest text-cream px-[clamp(1.5rem,4vw,4rem)] py-[clamp(3rem,5vw,5rem)]">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
-                { num: '01', vi: 'Nguyên liệu thật', en: 'Real Ingredients', desc_vi: 'Tuyển chọn kỹ lưỡng từ nguồn tươi sạch mỗi ngày.', desc_en: 'Carefully selected from fresh, clean sources every day.' },
+                { num: '01', vi: 'Nguyên liệu thiên nhiên', en: 'Real Ingredients', desc_vi: 'Tuyển chọn kỹ lưỡng từ nguồn tươi sạch mỗi ngày.', desc_en: 'Carefully selected from fresh, clean sources every day.' },
                 { num: '02', vi: 'Ít chế biến', en: 'Minimally Processed', desc_vi: 'Giữ nguyên hương vị tự nhiên, không pha loãng.', desc_en: 'Preserving natural flavor, undiluted.' },
                 { num: '03', vi: 'Chân thành', en: 'Honest', desc_vi: 'Không chất bảo quản, không đường tinh luyện thêm.', desc_en: 'No preservatives, no added refined sugar.' },
               ].map((v) => (

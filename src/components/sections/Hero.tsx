@@ -83,8 +83,8 @@ export default function Hero() {
           const Icon = benefitIcons[b.icon as keyof typeof benefitIcons]
           return (
             <div key={b.label} className="flex flex-col items-center gap-2 min-w-[60px]">
-              <Icon size={22} strokeWidth={1.4} className="text-olive" />
-              <span className="text-xs font-medium text-ink-500 tracking-wide">{b.label}</span>
+              <Icon size={31} strokeWidth={1.4} className="text-olive" />
+              <span className="text-[17px] font-medium text-ink-500 tracking-wide">{b.label}</span>
             </div>
           )
         })}

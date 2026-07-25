@@ -22,11 +22,11 @@ const ysabeau = localFont({
 
 export const metadata: Metadata = {
   title: 'Lành — Nguyên chất mỗi ngày',
-  description: 'Đồ uống tươi sạch từ nguyên liệu thật. Rau má, nước sâm, thảo mộc — không pha loãng, không chất bảo quản.',
+  description: 'Đồ uống tươi sạch từ nguyên liệu thiên nhiên. Rau má, nước sâm, thảo mộc — không pha loãng, không chất bảo quản.',
   keywords: ['tiệm nước', 'rau má', 'nước sâm', 'thảo mộc', 'đồ uống tự nhiên', 'Phú Nhuận'],
   openGraph: {
     title: 'Lành — Nguyên chất mỗi ngày',
-    description: 'Đồ uống tươi sạch từ nguyên liệu thật.',
+    description: 'Đồ uống tươi sạch từ nguyên liệu thiên nhiên.',
     locale: 'vi_VN',
     type: 'website',
   },

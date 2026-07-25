@@ -7,7 +7,7 @@ import CategoryNav from '@/components/sections/CategoryNav'
 
 export const metadata: Metadata = {
   title: 'Sản phẩm — Lành',
-  description: 'Đồ uống tươi sạch từ rau má, nước sâm và thảo mộc. Nguyên liệu thật, không pha loãng.',
+  description: 'Đồ uống tươi sạch từ rau má, nước sâm và thảo mộc. Nguyên liệu thiên nhiên, không pha loãng.',
 }
 
 export default function SanPhamPage() {

@@ -21,7 +21,7 @@ export const content = {
   },
   hero: {
     vi: {
-      eyebrow: 'Nguyên liệu thật',
+      eyebrow: 'Nguyên liệu thiên nhiên',
       heading: 'Lành từ nguyên liệu, mát từ thiên nhiên.',
       description: 'Chúng mình tin rằng sức khỏe bắt đầu từ những lựa chọn nhỏ mỗi ngày.\n\nMột ly nước được làm từ nguyên liệu tươi sạch, nguyên chất và được chuẩn bị cẩn thận có thể khiến một ngày bận rộn trở nên dễ chịu hơn.\n\nVì thế, Lành chọn làm mọi thứ đơn giản: nguyên liệu tuyển chọn, hương vị tự nhiên và sự chân thành trong từng ly nước.',
       featuredName: 'Rau Má Nguyên Chất',
@@ -98,7 +98,7 @@ export const content = {
       eyebrow: 'Câu chuyện',
       heading: 'Chăm sóc cơ thể bạn,\ntừng ngụm một.',
       link: 'Sự khác biệt của Lành',
-      description: 'Lành bắt đầu từ một niềm tin giản dị: điều tốt cho sức khỏe không cần cầu kỳ. Chúng mình chọn nguyên liệu thật, chế biến tối giản và giữ lại trọn vẹn hương vị tự nhiên — để mỗi ly nước là một lựa chọn nhẹ nhàng, an yên giữa nhịp sống bận rộn.',
+      description: 'Lành bắt đầu từ một niềm tin giản dị: điều tốt cho sức khỏe không cần cầu kỳ. Chúng mình chọn nguyên liệu thiên nhiên, chế biến tối giản và giữ lại trọn vẹn hương vị tự nhiên — để mỗi ly nước là một lựa chọn nhẹ nhàng, an yên giữa nhịp sống bận rộn.',
       imagePlaceholder: 'Ảnh không gian Lành',
     },
     en: {
@@ -131,7 +131,7 @@ export const content = {
         placeholder: 'Email của bạn',
         button: 'Đăng ký',
       },
-      badges: ['Nguyên liệu thật', 'Không chất bảo quản'],
+      badges: ['Nguyên liệu thiên nhiên', 'Không chất bảo quản'],
       columns: [
         {
           heading: 'Cửa hàng',
@@ -222,10 +222,10 @@ export const content = {
       intro: 'Giữa nhịp sống hối hả, đôi khi điều chúng ta cần chỉ là một khoảng dừng nhỏ.',
       paragraphs: [
         'Lành bắt đầu từ một góc nhỏ trong căn homestay ấm cúng – nơi có khoảng sân xanh đón nắng, vài chiếc bàn gỗ yên tĩnh và sân thượng đầy gió. Một nơi để ghé nhanh mang đi, đặt giao tận nơi, hoặc ngồi lại vài phút để chậm hơn một chút.',
-        'Chúng mình tin rằng, một ly nước ngon không cần quá cầu kỳ. Điều quan trọng nhất là nguyên liệu thật.',
+        'Chúng mình tin rằng, một ly nước ngon không cần quá cầu kỳ. Điều quan trọng nhất là nguyên liệu thiên nhiên.',
         'Mỗi ngày, rau má, dừa, trái cây và các loại thảo mộc đều được tuyển chọn kỹ lưỡng từ những nguồn nguyên liệu tươi sạch. Nước được làm từ nguyên liệu nguyên chất, hạn chế chế biến, không pha loãng để giữ trọn hương vị tự nhiên.',
         'Từ ly rau má dừa mát lành đến nước sâm nấu mỗi ngày, mọi thức uống đều được chuẩn bị với mong muốn mang đến một lựa chọn tốt hơn cho sức khỏe mà vẫn thơm ngon, dễ uống và phù hợp với nhịp sống hiện đại.',
-        'Lành không chỉ là một tiệm nước. Đó là một lời nhắc rằng, giữa những ngày bận rộn, bạn vẫn có thể dành cho mình một điều tử tế – bắt đầu từ một ly nước được làm bằng sự chỉn chu và nguyên liệu thật.',
+        'Lành không chỉ là một tiệm nước. Đó là một lời nhắc rằng, giữa những ngày bận rộn, bạn vẫn có thể dành cho mình một điều tử tế – bắt đầu từ một ly nước được làm bằng sự chỉn chu và nguyên liệu thiên nhiên.',
       ],
       closing: 'Lành – Lành từ nguyên liệu, mát từ thiên nhiên.',
     },

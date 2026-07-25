@@ -5,7 +5,7 @@ import AnimateOnScroll from '@/components/ui/AnimateOnScroll'
 
 export const metadata: Metadata = {
   title: 'Câu chuyện — Lành',
-  description: 'Câu chuyện về Tiệm nước Lành — nơi bắt đầu từ niềm tin vào nguyên liệu thật.',
+  description: 'Câu chuyện về Tiệm nước Lành — nơi bắt đầu từ niềm tin vào nguyên liệu thiên nhiên.',
 }
 
 export default function CauChuyenPage() {
