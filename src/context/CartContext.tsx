@@ -6,11 +6,12 @@ export interface CartItem {
   productId: string
   quantity: number
   toppings: string[]
+  requests: string[]
 }
 
 interface CartContextValue {
   cart: CartItem[]
-  addToCart: (productId: string, qty: number, toppings: string[]) => void
+  addToCart: (productId: string, qty: number, toppings: string[], requests: string[]) => void
   updateQty: (productId: string, qty: number) => void
   removeFromCart: (productId: string) => void
   clearCart: () => void
@@ -30,7 +31,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       if (stored) {
         const parsed = JSON.parse(stored)
         // Migrate old cart items that may lack toppings field
-        setCart(parsed.map((item: CartItem) => ({ ...item, toppings: item.toppings ?? [] })))
+        setCart(parsed.map((item: CartItem) => ({ ...item, toppings: item.toppings ?? [], requests: item.requests ?? [] })))
       }
     } catch {
       localStorage.removeItem('lanh-cart')
@@ -41,17 +42,17 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     if (mounted) localStorage.setItem('lanh-cart', JSON.stringify(cart))
   }, [cart, mounted])
 
-  const addToCart = useCallback((productId: string, qty: number, toppings: string[]) => {
+  const addToCart = useCallback((productId: string, qty: number, toppings: string[], requests: string[]) => {
     setCart(prev => {
       const existing = prev.find(item => item.productId === productId)
       if (existing) {
         return prev.map(item =>
           item.productId === productId
-            ? { ...item, quantity: item.quantity + qty, toppings }
+            ? { ...item, quantity: item.quantity + qty, toppings, requests }
             : item
         )
       }
-      return [...prev, { productId, quantity: qty, toppings }]
+      return [...prev, { productId, quantity: qty, toppings, requests }]
     })
   }, [])
 

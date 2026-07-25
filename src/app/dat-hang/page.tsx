@@ -53,13 +53,16 @@ export default function DatHangPage() {
     `SĐT: ${phone || '—'}`,
     '---',
     ...cartItems.map(item => {
-      const toppingLine = item.toppings.length > 0
+      const toppingLine = (item.toppings ?? []).length > 0
         ? ` (Topping: ${getToppingNames(item.toppings)})`
+        : ''
+      const requestLine = (item.requests ?? []).length > 0
+        ? ` [${(item.requests ?? []).join(', ')}]`
         : ''
       const priceLine = item.product.price !== null
         ? ` = ${formatPrice(itemTotal(item), lang)}`
         : ''
-      return `- ${item.product.name[lang]} x${item.quantity}${toppingLine}${priceLine}`
+      return `- ${item.product.name[lang]} x${item.quantity}${toppingLine}${requestLine}${priceLine}`
     }),
     '---',
     `TỔNG: ${hasNullPrice ? 'Tiệm sẽ báo giá' : formatPrice(total, lang)}`,
@@ -196,9 +199,14 @@ export default function DatHangPage() {
                   <p className="text-sm font-semibold text-ink-900 leading-snug">
                     {item.product.name[lang]}
                   </p>
-                  {item.toppings.length > 0 && (
+                  {(item.toppings ?? []).length > 0 && (
                     <p className="text-[11px] text-olive mt-0.5">
                       + {getToppingNames(item.toppings)}
+                    </p>
+                  )}
+                  {(item.requests ?? []).length > 0 && (
+                    <p className="text-[11px] text-terracotta mt-0.5">
+                      {(item.requests ?? []).join(', ')}
                     </p>
                   )}
                   <p className="text-xs text-ink-500 mt-0.5">

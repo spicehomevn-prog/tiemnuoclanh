@@ -19,7 +19,12 @@ export default function ProductCard({ product }: Props) {
   const t = content.products[lang]
   const [qty, setQty] = useState(1)
   const [selectedToppings, setSelectedToppings] = useState<string[]>([])
+  const [selectedRequests, setSelectedRequests] = useState<string[]>([])
   const [added, setAdded] = useState(false)
+
+  const specialRequests = lang === 'vi'
+    ? ['Không đường', 'Ít đường', 'Thêm đường', 'Không đá', 'Ít đá']
+    : ['No sugar', 'Less sugar', 'Extra sugar', 'No ice', 'Less ice']
 
   function toggleTopping(id: string) {
     setSelectedToppings(prev =>
@@ -27,8 +32,14 @@ export default function ProductCard({ product }: Props) {
     )
   }
 
+  function toggleRequest(r: string) {
+    setSelectedRequests(prev =>
+      prev.includes(r) ? prev.filter(x => x !== r) : [...prev, r]
+    )
+  }
+
   function handleAddToCart() {
-    addToCart(product.id, qty, selectedToppings)
+    addToCart(product.id, qty, selectedToppings, selectedRequests)
     setAdded(true)
     setTimeout(() => setAdded(false), 1500)
   }
@@ -98,6 +109,31 @@ export default function ProductCard({ product }: Props) {
                   }`}
                 >
                   {top.name[lang]} <span className="opacity-60">+{(top.price/1000).toLocaleString('vi-VN')}k</span>
+                </button>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Special requests */}
+        <div className="border-t border-[#F0EBE1] pt-3">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-ink-400 mb-2">
+            {lang === 'vi' ? 'Yêu cầu riêng' : 'Special requests'}
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {specialRequests.map(r => {
+              const selected = selectedRequests.includes(r)
+              return (
+                <button
+                  key={r}
+                  onClick={() => toggleRequest(r)}
+                  className={`text-[14px] px-2.5 py-1.5 rounded-pill border transition-colors duration-150 ${
+                    selected
+                      ? 'bg-terracotta text-white border-terracotta'
+                      : 'border-[#E4DCCB] text-ink-500 hover:border-terracotta/40'
+                  }`}
+                >
+                  {r}
                 </button>
               )
             })}
