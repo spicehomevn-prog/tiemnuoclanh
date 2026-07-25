@@ -26,7 +26,7 @@ export default function ProductGrid({ showHeader = true, showAll = false }: Prop
           <div>
             <div className="flex items-center gap-4 mb-8">
               <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-forest px-3 py-1.5 bg-forest/8 rounded-pill border border-forest/20">
-                Signature
+                Must Try
               </span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

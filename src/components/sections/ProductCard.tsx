@@ -57,7 +57,7 @@ export default function ProductCard({ product }: Props) {
         {product.signature && (
           <div className="absolute top-3 left-3">
             <span className="text-[11px] font-semibold px-2.5 py-1 rounded-pill bg-forest text-cream">
-              Signature
+              Must Try
             </span>
           </div>
         )}
