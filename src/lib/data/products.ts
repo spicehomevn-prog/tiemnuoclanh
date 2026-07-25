@@ -41,7 +41,7 @@ export const products: Product[] = [
   // ── RAU MÁ ──────────────────────────────────────────────────────────────────
   { id: 'rau-ma-dua',                name: { vi: 'Rau Má Dừa Tươi',               en: 'Fresh Coconut Pennywort' },      description: { vi: '', en: '' }, price: 22000, categoryId: 'rau-ma', signature: true,  swatch: '#E3E9DD', imageSrc: null },
   { id: 'rau-ma-sua-dua',            name: { vi: 'Rau Má Sữa Dừa',                en: 'Coconut Milk Pennywort' },       description: { vi: '', en: '' }, price: 22000, categoryId: 'rau-ma', signature: true,  swatch: '#E3E9DD', imageSrc: null },
-  { id: 'rau-ma-com-dua',            name: { vi: 'Rau Má Cơm Dừa',                en: 'Coconut Flesh Pennywort' },      description: { vi: '', en: '' }, price: 22000, categoryId: 'rau-ma', signature: true,  swatch: '#E3E9DD', imageSrc: null },
+
   { id: 'rau-ma-dau-xanh',           name: { vi: 'Rau Má Đậu Xanh',               en: 'Mung Bean Pennywort' },          description: { vi: '', en: '' }, price: 22000, categoryId: 'rau-ma', signature: true,  swatch: '#E3E9DD', imageSrc: null },
   { id: 'rau-ma-sau-rieng-sua-dua',  name: { vi: 'Rau Má Sầu Riêng Sữa Dừa',      en: 'Durian Coconut Milk Pennywort' }, description: { vi: '', en: '' }, price: 26000, categoryId: 'rau-ma', signature: true,  swatch: '#E3E9DD', imageSrc: null },
   { id: 'rau-ma-dau-xanh-sua-dua',   name: { vi: 'Rau Má Đậu Xanh Sữa Dừa',       en: 'Mung Bean Coconut Milk Pennywort' }, description: { vi: '', en: '' }, price: 22000, categoryId: 'rau-ma', signature: true, swatch: '#E3E9DD', imageSrc: null },
