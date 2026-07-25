@@ -136,10 +136,12 @@ export const content = {
         {
           heading: 'Cửa hàng',
           links: [
-            { label: 'Tất cả sản phẩm', href: '/san-pham' },
-            { label: 'Rau má', href: '/san-pham#rau-ma' },
-            { label: 'Nước sâm', href: '/san-pham#nuoc-sam' },
-            { label: 'Combo', href: '/san-pham#combo' },
+            { label: 'Must Try', href: '/san-pham#must-try' },
+            { label: 'Rau Má', href: '/san-pham#rau-ma' },
+            { label: 'Dừa Tươi', href: '/san-pham#dua-tuoi' },
+            { label: 'Cà Phê', href: '/san-pham#ca-phe' },
+            { label: 'Thảo Mộc', href: '/san-pham#thao-moc' },
+            { label: 'Theo Mùa', href: '/san-pham#theo-mua' },
           ],
         },
         {
@@ -173,10 +175,12 @@ export const content = {
         {
           heading: 'Shop',
           links: [
-            { label: 'All Products', href: '/san-pham' },
+            { label: 'Must Try', href: '/san-pham#must-try' },
             { label: 'Pennywort', href: '/san-pham#rau-ma' },
-            { label: 'Herbal', href: '/san-pham#nuoc-sam' },
-            { label: 'Combo', href: '/san-pham#combo' },
+            { label: 'Fresh Coconut', href: '/san-pham#dua-tuoi' },
+            { label: 'Coffee', href: '/san-pham#ca-phe' },
+            { label: 'Herbal', href: '/san-pham#thao-moc' },
+            { label: 'Seasonal', href: '/san-pham#theo-mua' },
           ],
         },
         {
