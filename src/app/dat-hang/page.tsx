@@ -29,10 +29,17 @@ export default function DatHangPage() {
     .filter((item): item is NonNullable<typeof item> => item !== null)
 
   const hasNullPrice = cartItems.some(item => item.product.price === null)
-  const total = cartItems.reduce(
-    (sum, item) => sum + (item.product.price ?? 0) * item.quantity,
-    0
-  )
+
+  function itemTotal(item: typeof cartItems[0]) {
+    const base = item.product.price ?? 0
+    const toppingCost = item.toppings.reduce(
+      (s, tid) => s + (toppings.find(t => t.id === tid)?.price ?? 0),
+      0
+    )
+    return (base + toppingCost) * item.quantity
+  }
+
+  const total = cartItems.reduce((sum, item) => sum + itemTotal(item), 0)
 
   function getToppingNames(ids: string[]) {
     return ids
@@ -50,7 +57,7 @@ export default function DatHangPage() {
         ? ` (Topping: ${getToppingNames(item.toppings)})`
         : ''
       const priceLine = item.product.price !== null
-        ? ` = ${formatPrice(item.product.price * item.quantity, lang)}`
+        ? ` = ${formatPrice(itemTotal(item), lang)}`
         : ''
       return `- ${item.product.name[lang]} x${item.quantity}${toppingLine}${priceLine}`
     }),
@@ -220,7 +227,7 @@ export default function DatHangPage() {
                 </div>
                 <div className="flex flex-col items-end gap-2 flex-shrink-0 pt-0.5">
                   <span className="text-sm font-semibold text-ink-900 whitespace-nowrap">
-                    {formatPrice(item.product.price !== null ? item.product.price * item.quantity : null, lang)}
+                    {formatPrice(item.product.price !== null ? itemTotal(item) : null, lang)}
                   </span>
                   <button
                     onClick={() => removeFromCart(item.productId)}
