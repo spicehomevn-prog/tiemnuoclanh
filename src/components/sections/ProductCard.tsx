@@ -65,23 +65,23 @@ export default function ProductCard({ product }: Props) {
 
       {/* Info */}
       <div className="flex flex-col flex-1 p-4 gap-3">
-        <h3 className="font-display font-semibold text-[15px] text-ink-900 leading-snug">
+        <h3 className="font-display font-semibold text-[19px] text-ink-900 leading-snug">
           {product.name[lang]}
         </h3>
 
         {product.description[lang] && (
-          <p className="text-xs leading-relaxed text-ink-500 -mt-1">
+          <p className="text-[15px] leading-relaxed text-ink-500 -mt-1">
             {product.description[lang]}
           </p>
         )}
 
-        <span className="font-semibold text-[15px] text-ink-900">
+        <span className="font-semibold text-[19px] text-ink-900">
           {formatPrice(product.price, lang)}
         </span>
 
         {/* Toppings */}
         <div className="border-t border-[#F0EBE1] pt-3">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-ink-400 mb-2">
+          <p className="text-[14px] font-semibold uppercase tracking-[0.08em] text-ink-400 mb-2">
             {lang === 'vi' ? 'Topping' : 'Toppings'}
           </p>
           <div className="flex flex-wrap gap-1.5">
@@ -91,7 +91,7 @@ export default function ProductCard({ product }: Props) {
                 <button
                   key={top.id}
                   onClick={() => toggleTopping(top.id)}
-                  className={`text-[11px] px-2.5 py-1 rounded-pill border transition-colors duration-150 ${
+                  className={`text-[14px] px-2.5 py-1.5 rounded-pill border transition-colors duration-150 ${
                     selected
                       ? 'bg-forest text-cream border-forest'
                       : 'border-[#E4DCCB] text-ink-500 hover:border-forest/40'
@@ -113,7 +113,7 @@ export default function ProductCard({ product }: Props) {
           >
             <Minus size={14} strokeWidth={2} />
           </button>
-          <span className="w-8 text-center text-[15px] font-semibold text-ink-900 select-none">
+          <span className="w-8 text-center text-[19px] font-semibold text-ink-900 select-none">
             {qty}
           </span>
           <button
@@ -128,7 +128,7 @@ export default function ProductCard({ product }: Props) {
         {/* Add to cart */}
         <button
           onClick={handleAddToCart}
-          className={`w-full py-3 text-sm font-semibold rounded-pill transition-all duration-200 active:scale-[0.98] flex items-center justify-center gap-2 ${
+          className={`w-full py-3 text-[17px] font-semibold rounded-pill transition-all duration-200 active:scale-[0.98] flex items-center justify-center gap-2 ${
             added
               ? 'bg-olive text-cream'
               : 'bg-forest text-cream hover:bg-ink-900'

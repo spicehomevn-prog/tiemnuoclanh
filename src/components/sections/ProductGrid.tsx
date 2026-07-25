@@ -25,7 +25,7 @@ export default function ProductGrid({ showHeader = true, showAll = false }: Prop
           {/* SIGNATURE */}
           <div>
             <div className="flex items-center gap-4 mb-8">
-              <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-forest px-3 py-1.5 bg-forest/8 rounded-pill border border-forest/20">
+              <span className="text-[15px] font-bold uppercase tracking-[0.14em] text-forest px-3 py-1.5 bg-forest/8 rounded-pill border border-forest/20">
                 Must Try
               </span>
             </div>
@@ -41,7 +41,7 @@ export default function ProductGrid({ showHeader = true, showAll = false }: Prop
             return (
               <div key={cat.id}>
                 <div className="flex items-center gap-4 mb-8">
-                  <h2 className="text-[11px] font-bold uppercase tracking-[0.14em] text-ink-500">
+                  <h2 className="text-[15px] font-bold uppercase tracking-[0.14em] text-ink-500">
                     {cat.name[lang]}
                   </h2>
                   <div className="flex-1 h-px bg-[#E4DCCB]" />
