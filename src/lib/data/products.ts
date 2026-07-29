@@ -29,12 +29,12 @@ export const categories: Category[] = [
 ]
 
 export const toppings: Topping[] = [
-  { id: 'hat-e',             name: { vi: 'Hạt é',             en: 'Basil Seeds' },            price: 5000 },
-  { id: 'tran-chau-dua',     name: { vi: 'Trân châu dừa',     en: 'Coconut Pearls' },         price: 7000 },
-  { id: 'tran-chau-cu-nang', name: { vi: 'Trân châu củ năng', en: 'Water Chestnut Pearls' },  price: 7000 },
-  { id: 'suong-sao',         name: { vi: 'Sương sáo',         en: 'Grass Jelly' },            price: 5000 },
-  { id: 'thach-la-dua',      name: { vi: 'Thạch lá dứa',      en: 'Pandan Jelly' },           price: 5000 },
-  { id: 'thach-dua-tuoi',    name: { vi: 'Thạch dừa tươi',    en: 'Fresh Coconut Jelly' },    price: 5000 },
+  { id: 'hat-e',                    name: { vi: 'Hạt é',                        en: 'Basil Seeds' },              price: 5000 },
+  { id: 'tran-chau-dua-la-dua',     name: { vi: 'Trân châu dừa sợi lá dứa',     en: 'Pandan Coconut Jelly Pearls' }, price: 7000 },
+  { id: 'tran-chau-dua-cu-den',     name: { vi: 'Trân châu dừa sợi củ dền',     en: 'Beetroot Coconut Jelly Pearls' }, price: 7000 },
+  { id: 'suong-sao',                name: { vi: 'Sương sáo',                     en: 'Grass Jelly' },              price: 5000 },
+  { id: 'thach-la-dua',             name: { vi: 'Thạch lá dứa',                  en: 'Pandan Jelly' },             price: 5000 },
+  { id: 'thach-dua-tuoi',           name: { vi: 'Thạch dừa tươi',                en: 'Fresh Coconut Jelly' },      price: 5000 },
 ]
 
 export const products: Product[] = [
