@@ -58,7 +58,7 @@ export default function Navbar() {
 
           {/* Logo center */}
           <Link href="/" className="flex-shrink-0" aria-label="Lành — trang chủ">
-            <Logo size={90} variant="default" />
+            <Logo size={63} variant="default" />
           </Link>
 
           {/* Right actions */}
