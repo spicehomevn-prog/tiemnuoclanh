@@ -111,8 +111,33 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile: cart + hamburger */}
+          {/* Mobile: lang toggle + cart + hamburger */}
           <div className="md:hidden flex items-center gap-1">
+            {/* Language toggle — visible on mobile header */}
+            <div className="flex items-center gap-0.5 text-xs font-semibold mr-1">
+              <button
+                onClick={() => setLang('vi')}
+                className={`px-2 py-1 rounded-pill transition-colors duration-150 ${
+                  lang === 'vi'
+                    ? 'bg-forest text-cream'
+                    : 'text-ink-500 hover:text-ink-700'
+                }`}
+              >
+                VI
+              </button>
+              <span className="text-ink-400/50">|</span>
+              <button
+                onClick={() => setLang('en')}
+                className={`px-2 py-1 rounded-pill transition-colors duration-150 ${
+                  lang === 'en'
+                    ? 'bg-forest text-cream'
+                    : 'text-ink-500 hover:text-ink-700'
+                }`}
+              >
+                EN
+              </button>
+            </div>
+
             <Link
               href="/dat-hang"
               className="relative p-2 text-ink-700"
@@ -148,25 +173,6 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <div className="flex items-center gap-3 pt-2 border-t border-[#E4DCCB]">
-              <span className="text-sm text-ink-500">Ngôn ngữ:</span>
-              <button
-                onClick={() => setLang('vi')}
-                className={`text-sm px-3 py-1 rounded-pill font-semibold transition-colors ${
-                  lang === 'vi' ? 'bg-forest text-cream' : 'text-ink-500 border border-[#E4DCCB]'
-                }`}
-              >
-                VI
-              </button>
-              <button
-                onClick={() => setLang('en')}
-                className={`text-sm px-3 py-1 rounded-pill font-semibold transition-colors ${
-                  lang === 'en' ? 'bg-forest text-cream' : 'text-ink-500 border border-[#E4DCCB]'
-                }`}
-              >
-                EN
-              </button>
-            </div>
           </div>
         )}
       </header>
