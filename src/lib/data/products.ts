@@ -37,10 +37,10 @@ export const toppings: Topping[] = [
   { id: 'tran-chau-cu-nang',               name: { vi: 'Trân Châu Củ Năng',                           en: 'Water Chestnut Pearls'                 }, price: 5000,  imageSrc: '/images/products/tran-chau-cu-nang.JPG'                   },
   { id: 'tran-chau-cu-nang-thanh-long-do', name: { vi: 'Trân Châu Củ Năng Thanh Long Đỏ',            en: 'Red Dragon Fruit Water Chestnut Pearls'}, price: 5000,  imageSrc: '/images/products/tran-chau-cu-nang-thanh-long-do.JPG'    },
   // Thạch
-  { id: 'thach-dua-tuoi',                  name: { vi: 'Thạch Dừa Tươi',                              en: 'Fresh Coconut Jelly'                   }, price: 5000,  imageSrc: null                                                       },
-  { id: 'thach-la-dua',                    name: { vi: 'Thạch Lá Dứa',                                 en: 'Pandan Jelly'                          }, price: 5000,  imageSrc: '/images/products/thach-la-dua-tuoi.JPG'                   },
-  { id: 'thach-thanh-long-do',             name: { vi: 'Thạch Thanh Long Đỏ',                          en: 'Red Dragon Fruit Jelly'                }, price: 5000,  imageSrc: null                                                       },
-  { id: 'mix-3-loai-thach',               name: { vi: 'Mix 3 Loại Thạch (Thanh Long, Lá Dứa, Dừa)',  en: 'Mix 3 Jellies (Dragon Fruit, Pandan, Coconut)' }, price: 10000, imageSrc: null                                             },
+  { id: 'thach-dua-tuoi',                  name: { vi: 'Thạch Dừa Tươi',                              en: 'Fresh Coconut Jelly'                   }, price: 5000,  imageSrc: '/images/products/thach-dua-tuoi.JPG'                      },
+  { id: 'thach-la-dua',                    name: { vi: 'Thạch Lá Dứa',                                 en: 'Pandan Jelly'                          }, price: 5000,  imageSrc: '/images/products/thach-la-dua.JPG'                        },
+  { id: 'thach-thanh-long-do',             name: { vi: 'Thạch Thanh Long Đỏ',                          en: 'Red Dragon Fruit Jelly'                }, price: 5000,  imageSrc: '/images/products/thach-thanh-long.JPG'                    },
+  { id: 'mix-3-loai-thach',               name: { vi: 'Mix 3 Loại Thạch (Thanh Long, Lá Dứa, Dừa)',  en: 'Mix 3 Jellies (Dragon Fruit, Pandan, Coconut)' }, price: 10000, imageSrc: '/images/products/mix-3-thach.jpg'              },
   // Hạt
   { id: 'hat-dac-rim-thot-not',            name: { vi: 'Hạt Đác Rim Thốt Nốt',                        en: 'Palm Seeds in Palm Sugar'              }, price: 7000,  imageSrc: null                                                       },
 ]
@@ -109,7 +109,7 @@ export const products: Product[] = [
     id: 'ca-phe-den',
     name:        { vi: 'Cà Phê Đen', en: 'Black Coffee' },
     description: { vi: 'Cà phê phin truyền thống — đậm vị, thơm nồng.', en: 'Traditional Vietnamese drip coffee — bold and aromatic.' },
-    price: 15000, categoryId: 'ca-phe', swatch: '#D9CBAF', imageSrc: '/images/products/ca-phe.jpg',
+    price: 15000, categoryId: 'ca-phe', swatch: '#D9CBAF', imageSrc: '/images/products/ca-phe-den.jpg',
   },
   {
     id: 'ca-phe-sua',
@@ -147,7 +147,7 @@ export const products: Product[] = [
     id: 'tra-thanh-long-do-thach-thanh-long',
     name:        { vi: 'Trà Thanh Long Đỏ Thạch Thanh Long', en: 'Red Dragon Fruit Tea with Dragon Fruit Jelly' },
     description: { vi: 'Trà thanh long đỏ tươi, thêm thạch thanh long — màu đỏ hồng rực rỡ, vị ngọt thanh.', en: 'Fresh red dragon fruit tea topped with dragon fruit jelly — vibrant and refreshing.' },
-    price: 22000, categoryId: 'tra-trai-cay', swatch: '#F5E6C8', imageSrc: null,
+    price: 22000, categoryId: 'tra-trai-cay', swatch: '#F5E6C8', imageSrc: '/images/products/tra-thanh-long-do.JPG',
   },
 ]
 
