@@ -10,7 +10,7 @@ import { products, toppings, formatPrice } from '@/lib/data/products'
 
 export default function DatHangPage() {
   const { lang } = useLang()
-  const { cart, updateQty, removeFromCart } = useCart()
+  const { cart, updateQty, removeFromCart, clearCart } = useCart()
   const t = content.datHang[lang]
 
   const [name, setName] = useState('')
@@ -181,9 +181,21 @@ export default function DatHangPage() {
 
         {/* Cart items */}
         <section className="bg-white rounded-2xl border border-[#E4DCCB] p-5 sm:p-6 flex flex-col gap-4">
-          <h2 className="text-xs font-semibold uppercase tracking-[0.1em] text-olive">
-            {t.cartSection}
-          </h2>
+          <div className="flex items-center justify-between">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.1em] text-olive">
+              {t.cartSection}
+            </h2>
+            {cartItems.length > 0 && (
+              <button
+                onClick={clearCart}
+                className="flex items-center gap-1.5 text-xs font-medium text-ink-400 hover:text-red-500 transition-colors duration-150"
+                aria-label={lang === 'vi' ? 'Xoá giỏ hàng' : 'Clear cart'}
+              >
+                <Trash2 size={13} strokeWidth={1.5} />
+                {lang === 'vi' ? 'Xoá giỏ hàng' : 'Clear cart'}
+              </button>
+            )}
+          </div>
           <div className="flex flex-col">
             {cartItems.map(item => (
               <div
