@@ -74,14 +74,14 @@ export default function DatHangPage() {
       <div className="min-h-[60vh] flex flex-col items-center justify-center px-6 py-20 text-center gap-6">
         <ShoppingBag size={48} strokeWidth={1} className="text-ink-400" />
         <div>
-          <h1 className="font-display text-2xl font-semibold text-ink-900">
+          <h1 className="font-display text-3xl font-semibold text-ink-900">
             {t.emptyCart}
           </h1>
-          <p className="mt-2 text-sm text-ink-500">{t.emptyCartSub}</p>
+          <p className="mt-2 text-lg text-ink-500">{t.emptyCartSub}</p>
         </div>
         <Link
           href="/san-pham"
-          className="flex items-center gap-2 text-sm font-semibold text-forest hover:text-olive transition-colors"
+          className="flex items-center gap-2 text-lg font-semibold text-forest hover:text-olive transition-colors"
         >
           {t.emptyCartLink} <ArrowRight size={15} />
         </Link>
@@ -136,13 +136,13 @@ export default function DatHangPage() {
       )}
       <div className="max-w-2xl mx-auto px-4 sm:px-6 py-10 md:py-16 flex flex-col gap-6">
         {/* Page title */}
-        <h1 className="font-display text-3xl md:text-4xl font-semibold text-ink-900">
+        <h1 className="font-display text-4xl md:text-5xl font-semibold text-ink-900">
           {t.title}
         </h1>
 
         {/* Customer info */}
         <section id="customer-section" className="bg-white rounded-2xl border border-[#E4DCCB] p-5 sm:p-6 flex flex-col gap-4">
-          <h2 className="text-xs font-semibold uppercase tracking-[0.1em] text-olive">
+          <h2 className="text-base font-semibold uppercase tracking-[0.1em] text-olive">
             {t.customerSection}
           </h2>
           <div className="flex flex-col gap-1">
@@ -151,14 +151,14 @@ export default function DatHangPage() {
               value={name}
               onChange={e => { setName(e.target.value); setShowErrors(false) }}
               placeholder={t.namePlaceholder + ' *'}
-              className={`w-full px-4 py-3.5 text-base rounded-xl bg-off-white text-ink-900 placeholder:text-ink-400 focus:outline-none transition-colors border ${
+              className={`w-full px-4 py-3.5 text-xl rounded-xl bg-off-white text-ink-900 placeholder:text-ink-400 focus:outline-none transition-colors border ${
                 showErrors && !name.trim()
                   ? 'border-red-400 focus:border-red-400'
                   : 'border-[#E4DCCB] focus:border-forest/60'
               }`}
             />
             {showErrors && !name.trim() && (
-              <p className="text-xs text-red-500 px-1">
+              <p className="text-base text-red-500 px-1">
                 {lang === 'vi' ? 'Vui lòng nhập họ và tên' : 'Please enter your name'}
               </p>
             )}
@@ -170,14 +170,14 @@ export default function DatHangPage() {
               value={phone}
               onChange={e => { setPhone(e.target.value); setShowErrors(false) }}
               placeholder={t.phonePlaceholder + ' *'}
-              className={`w-full px-4 py-3.5 text-base rounded-xl bg-off-white text-ink-900 placeholder:text-ink-400 focus:outline-none transition-colors border ${
+              className={`w-full px-4 py-3.5 text-xl rounded-xl bg-off-white text-ink-900 placeholder:text-ink-400 focus:outline-none transition-colors border ${
                 showErrors && !phone.trim()
                   ? 'border-red-400 focus:border-red-400'
                   : 'border-[#E4DCCB] focus:border-forest/60'
               }`}
             />
             {showErrors && !phone.trim() && (
-              <p className="text-xs text-red-500 px-1">
+              <p className="text-base text-red-500 px-1">
                 {lang === 'vi' ? 'Vui lòng nhập số điện thoại' : 'Please enter your phone number'}
               </p>
             )}
@@ -187,13 +187,13 @@ export default function DatHangPage() {
         {/* Cart items */}
         <section className="bg-white rounded-2xl border border-[#E4DCCB] p-5 sm:p-6 flex flex-col gap-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-xs font-semibold uppercase tracking-[0.1em] text-olive">
+            <h2 className="text-base font-semibold uppercase tracking-[0.1em] text-olive">
               {t.cartSection}
             </h2>
             {cartItems.length > 0 && (
               <button
                 onClick={clearCart}
-                className="flex items-center gap-1.5 text-xs font-medium text-ink-400 hover:text-red-500 transition-colors duration-150"
+                className="flex items-center gap-1.5 text-base font-medium text-ink-400 hover:text-red-500 transition-colors duration-150"
                 aria-label={lang === 'vi' ? 'Xoá giỏ hàng' : 'Clear cart'}
               >
                 <Trash2 size={13} strokeWidth={1.5} />
@@ -213,20 +213,20 @@ export default function DatHangPage() {
                   style={{ background: item.product.swatch }}
                 />
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-semibold text-ink-900 leading-snug">
+                  <p className="text-lg font-semibold text-ink-900 leading-snug">
                     {item.product.name[lang]}
                   </p>
                   {(item.toppings ?? []).length > 0 && (
-                    <p className="text-[11px] text-olive mt-0.5">
+                    <p className="text-sm text-olive mt-0.5">
                       + {getToppingNames(item.toppings)}
                     </p>
                   )}
                   {(item.requests ?? []).length > 0 && (
-                    <p className="text-[11px] text-terracotta mt-0.5">
+                    <p className="text-sm text-terracotta mt-0.5">
                       {(item.requests ?? []).join(', ')}
                     </p>
                   )}
-                  <p className="text-xs text-ink-500 mt-0.5">
+                  <p className="text-base text-ink-500 mt-0.5">
                     {formatPrice(item.product.price, lang)}
                   </p>
                   {/* Qty stepper */}
@@ -238,7 +238,7 @@ export default function DatHangPage() {
                     >
                       <span className="text-xl leading-none select-none">−</span>
                     </button>
-                    <span className="w-8 text-center text-sm font-semibold text-ink-900 select-none">
+                    <span className="w-8 text-center text-lg font-semibold text-ink-900 select-none">
                       {item.quantity}
                     </span>
                     <button
@@ -251,7 +251,7 @@ export default function DatHangPage() {
                   </div>
                 </div>
                 <div className="flex flex-col items-end gap-2 flex-shrink-0 pt-0.5">
-                  <span className="text-sm font-semibold text-ink-900 whitespace-nowrap">
+                  <span className="text-lg font-semibold text-ink-900 whitespace-nowrap">
                     {formatPrice(item.product.price !== null ? itemTotal(item) : null, lang)}
                   </span>
                   <button
@@ -268,8 +268,8 @@ export default function DatHangPage() {
 
           {/* Total */}
           <div className="flex justify-between items-center pt-4 border-t border-[#E4DCCB]">
-            <span className="text-sm font-medium text-ink-700">{t.total}</span>
-            <span className="text-2xl font-semibold font-display text-ink-900">
+            <span className="text-lg font-medium text-ink-700">{t.total}</span>
+            <span className="text-3xl font-semibold font-display text-ink-900">
               {hasNullPrice ? (lang === 'vi' ? 'Tiệm báo giá' : 'TBA') : formatPrice(total, lang)}
             </span>
           </div>
@@ -278,7 +278,7 @@ export default function DatHangPage() {
         {/* Zalo section */}
         <section className="flex flex-col gap-4">
           {/* Instruction */}
-          <p className="text-sm text-ink-500 text-center leading-relaxed">
+          <p className="text-lg text-ink-500 text-center leading-relaxed">
             {lang === 'vi'
               ? 'Bấm nút bên dưới để gửi đơn hàng qua Zalo — chúng mình sẽ xác nhận đơn và liên hệ bạn sớm nhất:'
               : 'Tap the button below to send your order via Zalo — we will confirm and contact you shortly:'}
@@ -295,7 +295,7 @@ export default function DatHangPage() {
               try { await navigator.clipboard.writeText(orderText) } catch {}
               setShowModal(true)
             }}
-            className="w-full flex items-center justify-center gap-3 py-4 text-base font-bold text-white rounded-xl shadow-md transition-all active:scale-[0.98] hover:brightness-110"
+            className="w-full flex items-center justify-center gap-3 py-4 text-xl font-bold text-white rounded-xl shadow-md transition-all active:scale-[0.98] hover:brightness-110"
             style={{ backgroundColor: '#0068FF' }}
           >
             <svg
@@ -316,8 +316,8 @@ export default function DatHangPage() {
           {/* Thank you message */}
           {sent && (
             <div className="text-center py-6 px-5 bg-sage-100 rounded-2xl border border-sage-200 mt-2">
-              <p className="text-base font-semibold text-forest">{t.thankYou}</p>
-              <p className="mt-1.5 text-sm text-ink-500 leading-relaxed">{t.thankYouSub}</p>
+              <p className="text-xl font-semibold text-forest">{t.thankYou}</p>
+              <p className="mt-1.5 text-lg text-ink-500 leading-relaxed">{t.thankYouSub}</p>
             </div>
           )}
         </section>
