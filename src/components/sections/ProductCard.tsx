@@ -74,6 +74,7 @@ export default function ProductCard({ product }: Props) {
             alt={product.name[lang]}
             fill
             className="object-cover"
+            style={{ objectPosition: product.imagePosition ?? 'center' }}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             loading="lazy"
           />

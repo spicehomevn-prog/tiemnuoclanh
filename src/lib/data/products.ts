@@ -7,6 +7,7 @@ export interface Product {
   signature?: boolean
   swatch: string
   imageSrc: string | null
+  imagePosition?: string
 }
 
 export interface Category {
@@ -50,13 +51,13 @@ export const products: Product[] = [
     id: 'rau-ma-truyen-thong',
     name:        { vi: 'Rau Má Nguyên Chất Truyền Thống', en: 'Natural Fresh Pennywort Juice' },
     description: { vi: 'Rau má nguyên chất, ép tươi mỗi ngày — vị thanh mát, giữ trọn hương vị tự nhiên.', en: 'Pure pennywort pressed fresh daily — clean, naturally refreshing.' },
-    price: 14000, categoryId: 'rau-ma', swatch: '#E3E9DD', imageSrc: '/images/products/rau-ma-truyen-thong.JPG',
+    price: 14000, categoryId: 'rau-ma', swatch: '#E3E9DD', imageSrc: '/images/products/rau-ma-truyen-thong.JPG', imagePosition: 'center 20%',
   },
   {
     id: 'rau-ma-dua',
     name:        { vi: 'Rau Má Dừa Tươi', en: 'Fresh Coconut Pennywort' },
     description: { vi: 'Rau má kết hợp nước dừa tươi — thanh ngọt, bổ mát.', en: 'Pennywort blended with fresh coconut juice — light, sweet and cooling.' },
-    price: 22000, categoryId: 'rau-ma', swatch: '#E3E9DD', imageSrc: null,
+    price: 22000, categoryId: 'rau-ma', swatch: '#E3E9DD', imageSrc: '/images/products/rau-ma-dua-tuoi.JPG', imagePosition: 'center 20%',
   },
   {
     id: 'rau-ma-dau-xanh',
