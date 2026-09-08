@@ -56,7 +56,7 @@ export default function ProductCard({ product }: Props) {
             src={product.imageSrc}
             alt={product.name[lang]}
             fill
-            className="object-contain p-6"
+            className="object-cover"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             loading="lazy"
           />
