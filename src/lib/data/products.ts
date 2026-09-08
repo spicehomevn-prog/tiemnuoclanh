@@ -18,6 +18,7 @@ export interface Topping {
   id: string
   name: { vi: string; en: string }
   price: number
+  imageSrc?: string | null
 }
 
 export const categories: Category[] = [
@@ -29,18 +30,18 @@ export const categories: Category[] = [
 
 export const toppings: Topping[] = [
   // Trân châu
-  { id: 'tran-chau-dua',                   name: { vi: 'Trân Châu Dừa',                        en: 'Coconut Pearls'                        }, price: 7000  },
-  { id: 'tran-chau-dua-la-dua',            name: { vi: 'Trân Châu Dừa Lá Dứa',                  en: 'Pandan Coconut Pearls'                 }, price: 7000  },
-  { id: 'tran-chau-dua-thanh-long-do',     name: { vi: 'Trân Châu Dừa Thanh Long Đỏ',           en: 'Red Dragon Fruit Coconut Pearls'       }, price: 7000  },
-  { id: 'tran-chau-cu-nang',               name: { vi: 'Trân Châu Củ Năng',                      en: 'Water Chestnut Pearls'                 }, price: 5000  },
-  { id: 'tran-chau-cu-nang-thanh-long-do', name: { vi: 'Trân Châu Củ Năng Thanh Long Đỏ',       en: 'Red Dragon Fruit Water Chestnut Pearls'}, price: 5000  },
+  { id: 'tran-chau-dua',                   name: { vi: 'Trân Châu Dừa',                             en: 'Coconut Pearls'                        }, price: 7000,  imageSrc: '/images/products/tran-chau-dua-non.JPG'                   },
+  { id: 'tran-chau-dua-la-dua',            name: { vi: 'Trân Châu Dừa Lá Dứa',                       en: 'Pandan Coconut Pearls'                 }, price: 7000,  imageSrc: '/images/products/tran-chau-dua-non-la-dua.JPG'            },
+  { id: 'tran-chau-dua-thanh-long-do',     name: { vi: 'Trân Châu Dừa Thanh Long Đỏ',                en: 'Red Dragon Fruit Coconut Pearls'       }, price: 7000,  imageSrc: '/images/products/tran-chau-dua-thanh-long-do.JPG'         },
+  { id: 'tran-chau-cu-nang',               name: { vi: 'Trân Châu Củ Năng',                           en: 'Water Chestnut Pearls'                 }, price: 5000,  imageSrc: '/images/products/tran-chau-cu-nang.JPG'                   },
+  { id: 'tran-chau-cu-nang-thanh-long-do', name: { vi: 'Trân Châu Củ Năng Thanh Long Đỏ',            en: 'Red Dragon Fruit Water Chestnut Pearls'}, price: 5000,  imageSrc: '/images/products/tran-chau-cu-nang-thanh-long-do.JPG'    },
   // Thạch
-  { id: 'thach-dua-tuoi',                  name: { vi: 'Thạch Dừa Tươi',                         en: 'Fresh Coconut Jelly'                   }, price: 5000  },
-  { id: 'thach-la-dua',                    name: { vi: 'Thạch Lá Dứa',                            en: 'Pandan Jelly'                          }, price: 5000  },
-  { id: 'thach-thanh-long-do',             name: { vi: 'Thạch Thanh Long Đỏ',                     en: 'Red Dragon Fruit Jelly'                }, price: 5000  },
-  { id: 'mix-3-loai-thach',               name: { vi: 'Mix 3 Loại Thạch (Thanh Long, Lá Dứa, Dừa)', en: 'Mix 3 Jellies (Dragon Fruit, Pandan, Coconut)' }, price: 10000 },
+  { id: 'thach-dua-tuoi',                  name: { vi: 'Thạch Dừa Tươi',                              en: 'Fresh Coconut Jelly'                   }, price: 5000,  imageSrc: null                                                       },
+  { id: 'thach-la-dua',                    name: { vi: 'Thạch Lá Dứa',                                 en: 'Pandan Jelly'                          }, price: 5000,  imageSrc: '/images/products/thach-la-dua-tuoi.JPG'                   },
+  { id: 'thach-thanh-long-do',             name: { vi: 'Thạch Thanh Long Đỏ',                          en: 'Red Dragon Fruit Jelly'                }, price: 5000,  imageSrc: null                                                       },
+  { id: 'mix-3-loai-thach',               name: { vi: 'Mix 3 Loại Thạch (Thanh Long, Lá Dứa, Dừa)',  en: 'Mix 3 Jellies (Dragon Fruit, Pandan, Coconut)' }, price: 10000, imageSrc: null                                             },
   // Hạt
-  { id: 'hat-dac-rim-thot-not',            name: { vi: 'Hạt Đác Rim Thốt Nốt',                   en: 'Palm Seeds in Palm Sugar'              }, price: 7000  },
+  { id: 'hat-dac-rim-thot-not',            name: { vi: 'Hạt Đác Rim Thốt Nốt',                        en: 'Palm Seeds in Palm Sugar'              }, price: 7000,  imageSrc: null                                                       },
 ]
 
 export const products: Product[] = [
