@@ -108,25 +108,25 @@ export const products: Product[] = [
     id: 'ca-phe-den',
     name:        { vi: 'Cà Phê Đen', en: 'Black Coffee' },
     description: { vi: 'Cà phê phin truyền thống — đậm vị, thơm nồng.', en: 'Traditional Vietnamese drip coffee — bold and aromatic.' },
-    price: 15000, categoryId: 'ca-phe', swatch: '#D9CBAF', imageSrc: null,
+    price: 15000, categoryId: 'ca-phe', swatch: '#D9CBAF', imageSrc: '/images/products/ca-phe.jpg',
   },
   {
     id: 'ca-phe-sua',
     name:        { vi: 'Cà Phê Sữa', en: 'Vietnamese Iced Coffee' },
     description: { vi: 'Cà phê đen pha sữa đặc — đậm ngọt kiểu truyền thống Việt.', en: 'Drip coffee with condensed milk — classic Vietnamese style.' },
-    price: 18000, categoryId: 'ca-phe', swatch: '#D9CBAF', imageSrc: null,
+    price: 18000, categoryId: 'ca-phe', swatch: '#D9CBAF', imageSrc: '/images/products/ca-phe-sua.jpg',
   },
   {
     id: 'ca-phe-sua-tuoi',
     name:        { vi: 'Cà Phê Sữa Tươi', en: 'Coffee with Fresh Milk' },
     description: { vi: 'Cà phê phin pha cùng sữa tươi — vị dịu nhẹ, thanh hơn sữa đặc.', en: 'Drip coffee with fresh milk — lighter and smoother.' },
-    price: 20000, categoryId: 'ca-phe', swatch: '#D9CBAF', imageSrc: null,
+    price: 20000, categoryId: 'ca-phe', swatch: '#D9CBAF', imageSrc: '/images/products/ca-phe-sua-tuoi.jpg',
   },
   {
     id: 'ca-phe-sua-dua',
     name:        { vi: 'Cà Phê Sữa Dừa', en: 'Coconut Milk Coffee' },
     description: { vi: 'Cà phê hoà quyện sữa dừa béo nhẹ — thơm dịu, khác biệt.', en: 'Coffee blended with creamy coconut milk — fragrant and unique.' },
-    price: 22000, categoryId: 'ca-phe', swatch: '#D9CBAF', imageSrc: null,
+    price: 22000, categoryId: 'ca-phe', swatch: '#D9CBAF', imageSrc: '/images/products/ca-phe-sua-dua.jpg',
   },
 
   // ── TRÀ TRÁI CÂY ────────────────────────────────────────────────────────────
