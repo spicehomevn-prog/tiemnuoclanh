@@ -99,19 +99,24 @@ export default function DatHangPage() {
           style={{ backgroundColor: 'rgba(0,0,0,0.45)' }}
         >
           <div className="bg-white rounded-2xl w-full max-w-sm p-6 flex flex-col gap-5 shadow-xl">
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-4">
               <div className="flex items-center gap-3">
                 <span className="text-2xl">✅</span>
                 <p className="text-base font-semibold text-forest leading-snug">
-                  {lang === 'vi' ? 'Đã tự động sao chép đơn hàng' : 'Order copied to clipboard'}
+                  {lang === 'vi' ? 'Đã tự động sao chép đơn hàng!' : 'Order copied to clipboard!'}
                 </p>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-2xl">📋</span>
-                <p className="text-sm text-ink-700 leading-relaxed">
+
+              {/* Highlighted paste instruction */}
+              <div className="bg-amber-50 border-2 border-amber-400 rounded-xl p-4 flex flex-col gap-2">
+                <p className="text-[13px] font-semibold uppercase tracking-wide text-amber-700">
+                  {lang === 'vi' ? '⚠️ Bước quan trọng' : '⚠️ Important step'}
+                </p>
+                <p className="text-base font-medium text-ink-900 leading-relaxed">
                   {lang === 'vi'
-                    ? 'Bạn chỉ cần bấm nút Dán vào ô tin nhắn sau khi mở Zalo'
-                    : 'Just tap Paste into the message box after Zalo opens'}
+                    ? <>Sau khi Zalo mở, nhấn giữ vào ô chat rồi chọn{' '}<span className="font-black text-amber-700 text-lg bg-amber-100 px-2 py-0.5 rounded">DÁN</span></>
+                    : <>After Zalo opens, long-press the chat box and tap{' '}<span className="font-black text-amber-700 text-lg bg-amber-100 px-2 py-0.5 rounded">PASTE</span></>
+                  }
                 </p>
               </div>
             </div>
