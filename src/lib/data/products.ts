@@ -49,7 +49,7 @@ export const products: Product[] = [
     id: 'rau-ma-truyen-thong',
     name:        { vi: 'Rau Má Nguyên Chất Truyền Thống', en: 'Natural Fresh Pennywort Juice' },
     description: { vi: 'Rau má nguyên chất, ép tươi mỗi ngày — vị thanh mát, giữ trọn hương vị tự nhiên.', en: 'Pure pennywort pressed fresh daily — clean, naturally refreshing.' },
-    price: 14000, categoryId: 'rau-ma', swatch: '#E3E9DD', imageSrc: '/images/products/rau-ma-truyen-thong.jpg',
+    price: 14000, categoryId: 'rau-ma', swatch: '#E3E9DD', imageSrc: '/images/products/rau-ma-truyen-thong.JPG',
   },
   {
     id: 'rau-ma-dua',
@@ -61,25 +61,25 @@ export const products: Product[] = [
     id: 'rau-ma-dau-xanh',
     name:        { vi: 'Rau Má Đậu Xanh', en: 'Mung Bean Pennywort' },
     description: { vi: 'Rau má xay cùng đậu xanh — bổ dưỡng, thanh nhiệt.', en: 'Pennywort with blended mung bean — nourishing and cooling.' },
-    price: 22000, categoryId: 'rau-ma', swatch: '#E3E9DD', imageSrc: '/images/products/rau-ma-dau-xanh.jpg',
+    price: 22000, categoryId: 'rau-ma', swatch: '#E3E9DD', imageSrc: '/images/products/rau-ma-dau-xanh.JPG',
   },
   {
     id: 'rau-ma-sua-dua',
     name:        { vi: 'Rau Má Sữa Dừa', en: 'Coconut Milk Pennywort' },
     description: { vi: 'Rau má hoà cùng sữa dừa béo nhẹ — vị mượt mà, thơm dịu.', en: 'Pennywort blended with creamy coconut milk — smooth and subtly fragrant.' },
-    price: 22000, categoryId: 'rau-ma', signature: true, swatch: '#E3E9DD', imageSrc: '/images/products/rau-ma-sua-dua.jpg',
+    price: 22000, categoryId: 'rau-ma', signature: true, swatch: '#E3E9DD', imageSrc: '/images/products/rau-ma-sua-dua.JPG',
   },
   {
     id: 'rau-ma-dau-xanh-sua-dua',
     name:        { vi: 'Rau Má Đậu Xanh Sữa Dừa', en: 'Mung Bean Coconut Milk Pennywort' },
     description: { vi: 'Bộ ba hoàn hảo: rau má tươi, đậu xanh và sữa dừa — đậm đà, bổ dưỡng.', en: 'The perfect trio: fresh pennywort, mung bean and coconut milk.' },
-    price: 24000, categoryId: 'rau-ma', signature: true, swatch: '#E3E9DD', imageSrc: '/images/products/rau-ma-dau-xanh-sua-dua.jpg',
+    price: 24000, categoryId: 'rau-ma', signature: true, swatch: '#E3E9DD', imageSrc: '/images/products/rau-ma-dau-xanh-sua-dua.JPG',
   },
   {
     id: 'rau-ma-dau-xanh-sua-dua-tran-chau',
     name:        { vi: 'Rau Má Đậu Xanh Sữa Dừa Trân Châu Dừa Non', en: 'Mung Bean Coconut Milk Pennywort with Coconut Pearls' },
     description: { vi: 'Rau má đậu xanh sữa dừa thêm trân châu dừa non giòn dai — thức uống đầy đặn nhất của Lành.', en: 'Our richest drink — mung bean coconut pennywort topped with chewy young coconut pearls.' },
-    price: 26000, categoryId: 'rau-ma', swatch: '#E3E9DD', imageSrc: '/images/products/rau-ma-dau-xanh-sua-dua-tran-chau.jpg',
+    price: 26000, categoryId: 'rau-ma', swatch: '#E3E9DD', imageSrc: '/images/products/rau-ma-dau-xanh-sua-dua-tran-chau.JPG',
   },
 
   // ── DỪA TƯƠI ────────────────────────────────────────────────────────────────
@@ -93,13 +93,13 @@ export const products: Product[] = [
     id: 'dua-tuoi-sot-tac-tran-chau',
     name:        { vi: 'Dừa Tươi Sốt Tắc Trân Châu Dừa Non', en: 'Coconut Juice with Kumquat Sauce & Coconut Pearls' },
     description: { vi: 'Nước dừa tươi rưới sốt tắc chua ngọt, thêm trân châu dừa non giòn dai.', en: 'Fresh coconut juice with tangy kumquat sauce and chewy young coconut pearls.' },
-    price: 22000, categoryId: 'dua-tuoi', swatch: '#F0E8D8', imageSrc: null,
+    price: 22000, categoryId: 'dua-tuoi', swatch: '#F0E8D8', imageSrc: '/images/products/dua-tac-tran-chau-dua-non.JPG',
   },
   {
     id: 'dua-tuoi-tran-chau-dua-non',
     name:        { vi: 'Dừa Tươi Trân Châu Dừa Non', en: 'Fresh Coconut Juice with Coconut Pearls' },
     description: { vi: 'Nước dừa tươi cùng trân châu dừa non — đơn giản mà ngon.', en: 'Fresh coconut juice with young coconut pearls — simple and delicious.' },
-    price: 22000, categoryId: 'dua-tuoi', swatch: '#F0E8D8', imageSrc: '/images/products/dua-tuoi-tran-chau-dua-non.jpg',
+    price: 22000, categoryId: 'dua-tuoi', swatch: '#F0E8D8', imageSrc: '/images/products/dua-tuoi-tran-chau-dua-non.JPG',
   },
 
   // ── CÀ PHÊ ──────────────────────────────────────────────────────────────────
@@ -133,7 +133,7 @@ export const products: Product[] = [
     id: 'tra-tac-tran-chau-dua-non',
     name:        { vi: 'Trà Tắc Trân Châu Dừa Non', en: 'Kumquat Tea with Coconut Pearls' },
     description: { vi: 'Trà tắc chua ngọt thanh mát, thêm trân châu dừa non giòn dai.', en: 'Sweet-tangy kumquat tea topped with chewy young coconut pearls.' },
-    price: 22000, categoryId: 'tra-trai-cay', swatch: '#F5E6C8', imageSrc: '/images/products/tra-tac-tran-chau-dua-non.jpg',
+    price: 22000, categoryId: 'tra-trai-cay', swatch: '#F5E6C8', imageSrc: '/images/products/tra-tac-tran-chau-dua-non.JPG',
   },
   {
     id: 'tra-tac-thach-3-vi',
