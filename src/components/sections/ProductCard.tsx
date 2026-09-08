@@ -1,8 +1,8 @@
 'use client'
 
 import Image from 'next/image'
-import { useState, useRef, useEffect } from 'react'
-import { Minus, Plus, Check, ChevronDown } from 'lucide-react'
+import { useState } from 'react'
+import { Minus, Plus, Check } from 'lucide-react'
 import { useLang } from '@/context/LanguageContext'
 import { useCart } from '@/context/CartContext'
 import { content } from '@/lib/content'
@@ -21,23 +21,10 @@ export default function ProductCard({ product }: Props) {
   const [selectedToppings, setSelectedToppings] = useState<string[]>([])
   const [selectedRequests, setSelectedRequests] = useState<string[]>([])
   const [added, setAdded] = useState(false)
-  const [toppingOpen, setToppingOpen] = useState(false)
-  const toppingRef = useRef<HTMLDivElement>(null)
 
   const specialRequests = lang === 'vi'
     ? ['Không đường', 'Ít đường', 'Thêm đường', 'Không đá', 'Ít đá']
     : ['No sugar', 'Less sugar', 'Extra sugar', 'No ice', 'Less ice']
-
-  useEffect(() => {
-    if (!toppingOpen) return
-    function handleClickOutside(e: MouseEvent) {
-      if (toppingRef.current && !toppingRef.current.contains(e.target as Node)) {
-        setToppingOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [toppingOpen])
 
   function toggleTopping(id: string) {
     setSelectedToppings(prev =>
@@ -56,10 +43,6 @@ export default function ProductCard({ product }: Props) {
     setAdded(true)
     setTimeout(() => setAdded(false), 1500)
   }
-
-  const selectedToppingNames = selectedToppings
-    .map(id => toppings.find(t => t.id === id)?.name[lang])
-    .filter(Boolean)
 
   return (
     <div className="group flex flex-col bg-white rounded-sm overflow-hidden border border-[#E4DCCB] hover:shadow-md transition-shadow duration-300">
@@ -108,96 +91,57 @@ export default function ProductCard({ product }: Props) {
           {formatPrice(product.price, lang)}
         </span>
 
-        {/* Toppings dropdown */}
-        <div className="border-t border-[#F0EBE1] pt-3" ref={toppingRef}>
+        {/* Toppings — always visible grid */}
+        <div className="border-t border-[#F0EBE1] pt-3">
           <p className="text-[14px] font-semibold uppercase tracking-[0.08em] text-ink-400 mb-2">
             {lang === 'vi' ? 'Topping' : 'Toppings'}
           </p>
-
-          {/* Trigger */}
-          <button
-            onClick={() => setToppingOpen(o => !o)}
-            className={`flex items-center gap-1.5 px-3 py-2 rounded-pill border text-[14px] font-medium transition-colors duration-150 ${
-              toppingOpen || selectedToppings.length > 0
-                ? 'border-forest text-forest bg-forest/5'
-                : 'border-[#E4DCCB] text-ink-500 hover:border-forest/40'
-            }`}
-          >
-            {selectedToppings.length > 0
-              ? `${selectedToppings.length} topping`
-              : (lang === 'vi' ? '+ Thêm topping' : '+ Add topping')}
-            <ChevronDown
-              size={14}
-              strokeWidth={2}
-              className={`transition-transform duration-200 ${toppingOpen ? 'rotate-180' : ''}`}
-            />
-          </button>
-
-          {/* Dropdown panel */}
-          {toppingOpen && (
-            <div className="relative z-20 mt-2 bg-white border border-[#E4DCCB] rounded-xl shadow-lg overflow-hidden">
-              <div className="max-h-64 overflow-y-auto p-2 grid grid-cols-2 gap-1.5">
-                {toppings.map(top => {
-                  const selected = selectedToppings.includes(top.id)
-                  return (
-                    <button
-                      key={top.id}
-                      onClick={() => toggleTopping(top.id)}
-                      className={`flex items-center gap-2 p-2 rounded-lg border text-left transition-colors duration-150 ${
-                        selected
-                          ? 'border-forest bg-forest/5'
-                          : 'border-transparent hover:border-[#E4DCCB] hover:bg-[#F7F4EE]'
-                      }`}
-                    >
-                      {/* Topping image */}
-                      <div className="relative w-12 h-12 flex-shrink-0 rounded-md overflow-hidden bg-[#F0EBE1]">
-                        {top.imageSrc ? (
-                          <Image
-                            src={top.imageSrc}
-                            alt={top.name[lang]}
-                            fill
-                            className="object-cover"
-                            sizes="48px"
-                          />
-                        ) : (
-                          <div className="w-full h-full bg-[#E5E1D6]" />
-                        )}
-                        {selected && (
-                          <div className="absolute inset-0 bg-forest/40 flex items-center justify-center">
-                            <Check size={14} strokeWidth={2.5} className="text-white" />
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Name + price */}
-                      <div className="min-w-0">
-                        <p className="text-[12px] font-medium text-ink-900 leading-snug line-clamp-2">
-                          {top.name[lang]}
-                        </p>
-                        <p className="text-[11px] text-ink-400 mt-0.5">
-                          +{(top.price / 1000).toLocaleString('vi-VN')}k
-                        </p>
-                      </div>
-                    </button>
-                  )
-                })}
-              </div>
-            </div>
-          )}
-
-          {/* Selected summary tags */}
-          {selectedToppingNames.length > 0 && (
-            <div className="flex flex-wrap gap-1 mt-2">
-              {selectedToppingNames.map(name => (
-                <span
-                  key={name}
-                  className="text-[11px] px-2 py-0.5 rounded-pill bg-forest/10 text-forest font-medium"
+          <div className="grid grid-cols-2 gap-1.5">
+            {toppings.map(top => {
+              const selected = selectedToppings.includes(top.id)
+              return (
+                <button
+                  key={top.id}
+                  onClick={() => toggleTopping(top.id)}
+                  className={`flex items-center gap-2 p-2 rounded-lg border text-left transition-colors duration-150 ${
+                    selected
+                      ? 'border-forest bg-forest/5'
+                      : 'border-transparent hover:border-[#E4DCCB] hover:bg-[#F7F4EE]'
+                  }`}
                 >
-                  {name}
-                </span>
-              ))}
-            </div>
-          )}
+                  {/* Topping image */}
+                  <div className="relative w-12 h-12 flex-shrink-0 rounded-md overflow-hidden bg-[#F0EBE1]">
+                    {top.imageSrc ? (
+                      <Image
+                        src={top.imageSrc}
+                        alt={top.name[lang]}
+                        fill
+                        className="object-cover"
+                        sizes="48px"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-[#E5E1D6]" />
+                    )}
+                    {selected && (
+                      <div className="absolute inset-0 bg-forest/40 flex items-center justify-center">
+                        <Check size={14} strokeWidth={2.5} className="text-white" />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Name + price */}
+                  <div className="min-w-0">
+                    <p className="text-[12px] font-medium text-ink-900 leading-snug line-clamp-2">
+                      {top.name[lang]}
+                    </p>
+                    <p className="text-[11px] text-ink-400 mt-0.5">
+                      +{(top.price / 1000).toLocaleString('vi-VN')}k
+                    </p>
+                  </div>
+                </button>
+              )
+            })}
+          </div>
         </div>
 
         {/* Special requests */}
