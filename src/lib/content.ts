@@ -16,8 +16,8 @@ export const content = {
     },
   },
   promo: {
-    vi: 'GIAO HÀNG MIỄN PHÍ CHO ĐƠN TỪ 300.000đ',
-    en: 'FREE DELIVERY FOR ORDERS OVER 300,000đ',
+    vi: 'MIỄN PHÍ GIAO HÀNG KHOẢNG CÁCH 5KM TỪ PHÚ NHUẬN — ĐƠN TỪ 200.000đ',
+    en: 'FREE DELIVERY WITHIN 5KM FROM PHÚ NHUẬN — ORDERS FROM 200,000đ',
   },
   hero: {
     vi: {
