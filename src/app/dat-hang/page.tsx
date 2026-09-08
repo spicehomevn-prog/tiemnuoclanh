@@ -119,7 +119,7 @@ export default function DatHangPage() {
               onClick={() => {
                 setShowModal(false)
                 setSent(true)
-                window.open('https://zalo.me/84979804343', '_blank', 'noopener,noreferrer')
+                window.open('https://zalo.me/84904955479', '_blank', 'noopener,noreferrer')
               }}
               className="w-full py-4 text-base font-bold text-white rounded-xl transition-all active:scale-[0.98] hover:brightness-110 flex items-center justify-center gap-2"
               style={{ backgroundColor: '#0068FF' }}
