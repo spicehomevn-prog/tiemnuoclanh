@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { Zap, Sprout, Brain, HeartPulse, Leaf } from 'lucide-react'
 import { useLang } from '@/context/LanguageContext'
 import { content } from '@/lib/content'
@@ -36,27 +37,26 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Col 2 — Product image placeholder */}
+        {/* Col 2 — Product image */}
         <div className="flex justify-center">
           <div
-            className="w-[82%] rounded-xl overflow-hidden relative flex items-end justify-center"
-            style={{ aspectRatio: '3/4.4', background: '#E7DBC4' }}
+            className="w-[82%] rounded-xl overflow-hidden relative"
+            style={{ aspectRatio: '3/4.4' }}
           >
+            <Image
+              src="/images/products/hero-section.png"
+              alt={t.imageAlt}
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 80vw, 30vw"
+              priority
+            />
             {/* Badge */}
-            <div className="absolute top-4 left-0 right-0 flex justify-center">
+            <div className="absolute top-4 left-0 right-0 flex justify-center z-10">
               <span className="text-xs font-semibold px-3 py-1 rounded-pill bg-cream/80 text-ink-700 border border-[#E4DCCB]">
                 {t.imageAlt}
               </span>
             </div>
-            {/* Bottle placeholder */}
-            <div
-              className="rounded-t-[18px] mb-[8%] border border-[#E4DCCB]"
-              style={{
-                width: '46%',
-                height: '74%',
-                background: '#E3E9DD',
-              }}
-            />
           </div>
         </div>
 
