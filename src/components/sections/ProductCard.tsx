@@ -20,6 +20,7 @@ export default function ProductCard({ product }: Props) {
   const [qty, setQty] = useState(1)
   const [selectedToppings, setSelectedToppings] = useState<string[]>([])
   const [selectedRequests, setSelectedRequests] = useState<string[]>([])
+  const [upsize, setUpsize] = useState(false)
   const [added, setAdded] = useState(false)
 
   const specialRequests = lang === 'vi'
@@ -39,11 +40,12 @@ export default function ProductCard({ product }: Props) {
   }
 
   function handleAddToCart() {
-    addToCart(product.id, qty, selectedToppings, selectedRequests)
+    addToCart(product.id, qty, selectedToppings, selectedRequests, upsize)
     setAdded(true)
     setTimeout(() => setAdded(false), 1500)
     setSelectedToppings([])
     setSelectedRequests([])
+    setUpsize(false)
     setQty(1)
   }
 
@@ -145,6 +147,33 @@ export default function ProductCard({ product }: Props) {
               )
             })}
           </div>
+        </div>
+
+        {/* Upsize */}
+        <div className="border-t border-[#F0EBE1] pt-3">
+          <button
+            onClick={() => setUpsize(u => !u)}
+            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg border transition-colors duration-150 ${
+              upsize
+                ? 'border-terracotta bg-terracotta/5'
+                : 'border-[#E4DCCB] hover:border-terracotta/40 hover:bg-[#F7F4EE]'
+            }`}
+          >
+            <div className="flex items-center gap-2">
+              <span className="text-lg">🥤</span>
+              <div className="text-left">
+                <p className={`text-[13px] font-semibold leading-snug ${upsize ? 'text-terracotta' : 'text-ink-800'}`}>
+                  {lang === 'vi' ? 'Upsize ly lớn' : 'Upsize (Large cup)'}
+                </p>
+                <p className="text-[11px] text-ink-400">+10.000đ</p>
+              </div>
+            </div>
+            <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-colors ${
+              upsize ? 'bg-terracotta border-terracotta' : 'border-[#E4DCCB]'
+            }`}>
+              {upsize && <Check size={11} strokeWidth={3} className="text-white" />}
+            </div>
+          </button>
         </div>
 
         {/* Special requests */}

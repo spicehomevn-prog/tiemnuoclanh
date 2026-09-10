@@ -8,11 +8,12 @@ export interface CartItem {
   quantity: number
   toppings: string[]
   requests: string[]
+  upsize?: boolean
 }
 
 interface CartContextValue {
   cart: CartItem[]
-  addToCart: (productId: string, qty: number, toppings: string[], requests: string[]) => void
+  addToCart: (productId: string, qty: number, toppings: string[], requests: string[], upsize?: boolean) => void
   updateQty: (id: string, qty: number) => void
   removeFromCart: (id: string) => void
   clearCart: () => void
@@ -40,6 +41,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
           id: item.id ?? makeId(item.productId),
           toppings: item.toppings ?? [],
           requests: item.requests ?? [],
+          upsize: item.upsize ?? false,
         })))
       }
     } catch {
@@ -51,21 +53,22 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     if (mounted) localStorage.setItem('lanh-cart', JSON.stringify(cart))
   }, [cart, mounted])
 
-  const addToCart = useCallback((productId: string, qty: number, toppings: string[], requests: string[]) => {
+  const addToCart = useCallback((productId: string, qty: number, toppings: string[], requests: string[], upsize = false) => {
     setCart(prev => {
       const sortedToppings = [...toppings].sort()
       const sortedRequests = [...requests].sort()
       const existing = prev.find(item =>
         item.productId === productId &&
         JSON.stringify([...item.toppings].sort()) === JSON.stringify(sortedToppings) &&
-        JSON.stringify([...item.requests].sort()) === JSON.stringify(sortedRequests)
+        JSON.stringify([...item.requests].sort()) === JSON.stringify(sortedRequests) &&
+        (item.upsize ?? false) === upsize
       )
       if (existing) {
         return prev.map(item =>
           item.id === existing.id ? { ...item, quantity: item.quantity + qty } : item
         )
       }
-      return [...prev, { id: makeId(productId), productId, quantity: qty, toppings, requests }]
+      return [...prev, { id: makeId(productId), productId, quantity: qty, toppings, requests, upsize }]
     })
   }, [])
 

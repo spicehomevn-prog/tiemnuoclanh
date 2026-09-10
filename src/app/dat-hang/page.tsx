@@ -30,13 +30,16 @@ export default function DatHangPage() {
 
   const hasNullPrice = cartItems.some(item => item.product.price === null)
 
+  const UPSIZE_PRICE = 10000
+
   function itemTotal(item: typeof cartItems[0]) {
     const base = item.product.price ?? 0
     const toppingCost = (item.toppings ?? []).reduce(
       (s, tid) => s + (toppings.find(t => t.id === tid)?.price ?? 0),
       0
     )
-    return (base + toppingCost) * item.quantity
+    const upsizeCost = item.upsize ? UPSIZE_PRICE : 0
+    return (base + toppingCost + upsizeCost) * item.quantity
   }
 
   const total = cartItems.reduce((sum, item) => sum + itemTotal(item), 0)
@@ -53,6 +56,7 @@ export default function DatHangPage() {
     `SĐT: ${phone || '—'}`,
     '---',
     ...cartItems.map(item => {
+      const upsizeLine = item.upsize ? ' [Upsize ly lớn +10k]' : ''
       const toppingLine = (item.toppings ?? []).length > 0
         ? ` (Topping: ${getToppingNames(item.toppings)})`
         : ''
@@ -62,7 +66,7 @@ export default function DatHangPage() {
       const priceLine = item.product.price !== null
         ? ` = ${formatPrice(itemTotal(item), lang)}`
         : ''
-      return `- ${item.product.name[lang]} x${item.quantity}${toppingLine}${requestLine}${priceLine}`
+      return `- ${item.product.name[lang]} x${item.quantity}${upsizeLine}${toppingLine}${requestLine}${priceLine}`
     }),
     '---',
     `TỔNG: ${hasNullPrice ? 'Tiệm sẽ báo giá' : formatPrice(total, lang)}`,
@@ -216,6 +220,11 @@ export default function DatHangPage() {
                   <p className="text-lg font-semibold text-ink-900 leading-snug">
                     {item.product.name[lang]}
                   </p>
+                  {item.upsize && (
+                    <p className="text-sm text-terracotta mt-0.5 font-medium">
+                      🥤 {lang === 'vi' ? 'Upsize ly lớn +10.000đ' : 'Upsize +10,000đ'}
+                    </p>
+                  )}
                   {(item.toppings ?? []).length > 0 && (
                     <p className="text-sm text-olive mt-0.5">
                       + {getToppingNames(item.toppings)}
