@@ -16,8 +16,8 @@ export const content = {
     },
   },
   promo: {
-    vi: '🛵 Miễn phí giao hàng: trong 3km — đơn từ 100k   ·   trong 5km — đơn từ 200k',
-    en: '🛵 Free delivery: within 3km — orders from 100k   ·   within 5km — orders from 200k',
+    vi: '🛵 Miễn phí giao hàng: trong 3km từ Phú Nhuận — đơn từ 100k   ·   trong 5km từ Phú Nhuận — đơn từ 200k',
+    en: '🛵 Free delivery: within 3km from Phú Nhuận — orders from 100k   ·   within 5km from Phú Nhuận — orders from 200k',
   },
   hero: {
     vi: {
