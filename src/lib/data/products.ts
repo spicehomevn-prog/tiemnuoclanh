@@ -81,7 +81,7 @@ export const products: Product[] = [
     id: 'rau-ma-dau-xanh-sua-dua-tran-chau',
     name:        { vi: 'Rau Má Đậu Xanh Sữa Dừa Trân Châu Dừa Non', en: 'Mung Bean Coconut Milk Pennywort with Coconut Pearls' },
     description: { vi: 'Rau má đậu xanh sữa dừa thêm trân châu dừa non giòn dai — thức uống đầy đặn nhất của Lành.', en: 'Our richest drink — mung bean coconut pennywort topped with chewy young coconut pearls.' },
-    price: 35000, categoryId: 'rau-ma', swatch: '#E3E9DD', imageSrc: '/images/products/rau-ma-dau-xanh-sua-dua-tran-chau.JPG',
+    price: 35000, categoryId: 'rau-ma', signature: true, swatch: '#E3E9DD', imageSrc: '/images/products/rau-ma-dau-xanh-sua-dua-tran-chau.JPG',
   },
 
   // ── DỪA TƯƠI ────────────────────────────────────────────────────────────────
@@ -95,13 +95,13 @@ export const products: Product[] = [
     id: 'dua-tuoi-sot-tac-tran-chau',
     name:        { vi: 'Dừa Tươi Sốt Tắc Trân Châu Dừa Non', en: 'Coconut Juice with Kumquat Sauce & Coconut Pearls' },
     description: { vi: 'Nước dừa tươi rưới sốt tắc chua ngọt, thêm trân châu dừa non giòn dai.', en: 'Fresh coconut juice with tangy kumquat sauce and chewy young coconut pearls.' },
-    price: 22000, categoryId: 'dua-tuoi', swatch: '#F0E8D8', imageSrc: '/images/products/dua-tac-tran-chau-dua-non.JPG',
+    price: 22000, categoryId: 'dua-tuoi', signature: true, swatch: '#F0E8D8', imageSrc: '/images/products/dua-tac-tran-chau-dua-non.JPG',
   },
   {
     id: 'dua-tuoi-tran-chau-dua-non',
     name:        { vi: 'Dừa Tươi Trân Châu Dừa Non', en: 'Fresh Coconut Juice with Coconut Pearls' },
     description: { vi: 'Nước dừa tươi cùng trân châu dừa non — đơn giản mà ngon.', en: 'Fresh coconut juice with young coconut pearls — simple and delicious.' },
-    price: 25000, categoryId: 'dua-tuoi', swatch: '#F0E8D8', imageSrc: '/images/products/dua-tuoi-tran-chau-dua-non.JPG',
+    price: 25000, categoryId: 'dua-tuoi', signature: true, swatch: '#F0E8D8', imageSrc: '/images/products/dua-tuoi-tran-chau-dua-non.JPG',
   },
 
   // ── CÀ PHÊ ──────────────────────────────────────────────────────────────────
@@ -127,7 +127,7 @@ export const products: Product[] = [
     id: 'ca-phe-sua-dua',
     name:        { vi: 'Cà Phê Sữa Dừa', en: 'Coconut Milk Coffee' },
     description: { vi: 'Cà phê hoà quyện sữa dừa béo nhẹ — thơm dịu, khác biệt.', en: 'Coffee blended with creamy coconut milk — fragrant and unique.' },
-    price: 30000, categoryId: 'ca-phe', swatch: '#D9CBAF', imageSrc: '/images/products/ca-phe-sua-dua.jpg',
+    price: 30000, categoryId: 'ca-phe', signature: true, swatch: '#D9CBAF', imageSrc: '/images/products/ca-phe-sua-dua.jpg',
   },
 
   // ── TRÀ TRÁI CÂY ────────────────────────────────────────────────────────────
@@ -147,7 +147,7 @@ export const products: Product[] = [
     id: 'tra-thanh-long-do-thach-thanh-long',
     name:        { vi: 'Trà Thanh Long Đỏ Thạch Thanh Long', en: 'Red Dragon Fruit Tea with Dragon Fruit Jelly' },
     description: { vi: 'Trà thanh long đỏ tươi, thêm thạch thanh long — màu đỏ hồng rực rỡ, vị ngọt thanh.', en: 'Fresh red dragon fruit tea topped with dragon fruit jelly — vibrant and refreshing.' },
-    price: 25000, categoryId: 'tra-trai-cay', swatch: '#F5E6C8', imageSrc: '/images/products/tra-thanh-long-do.JPG',
+    price: 25000, categoryId: 'tra-trai-cay', signature: true, swatch: '#F5E6C8', imageSrc: '/images/products/tra-thanh-long-do.JPG',
   },
 ]
 
