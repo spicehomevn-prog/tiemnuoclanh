@@ -40,7 +40,7 @@ export default function Hero() {
         {/* Col 2 — Product image */}
         <div className="flex justify-center">
           <div
-            className="w-[82%] rounded-xl overflow-hidden relative"
+            className="w-full rounded-xl overflow-hidden relative"
             style={{ aspectRatio: '3/4.4' }}
           >
             <Image
@@ -48,15 +48,9 @@ export default function Hero() {
               alt={t.imageAlt}
               fill
               className="object-cover object-center"
-              sizes="(max-width: 768px) 80vw, 30vw"
+              sizes="(max-width: 768px) 100vw, 40vw"
               priority
             />
-            {/* Badge */}
-            <div className="absolute top-4 left-0 right-0 flex justify-center z-10">
-              <span className="text-xs font-semibold px-3 py-1 rounded-pill bg-cream/80 text-ink-700 border border-[#E4DCCB]">
-                {t.imageAlt}
-              </span>
-            </div>
           </div>
         </div>
 
