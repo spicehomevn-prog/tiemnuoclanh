@@ -16,14 +16,8 @@ export const content = {
     },
   },
   promo: {
-    vi: [
-      'MIỄN PHÍ GIAO HÀNG KHOẢNG CÁCH 3KM TỪ PHÚ NHUẬN — ĐƠN TỪ 100.000đ',
-      'MIỄN PHÍ GIAO HÀNG KHOẢNG CÁCH 5KM TỪ PHÚ NHUẬN — ĐƠN TỪ 200.000đ',
-    ],
-    en: [
-      'FREE DELIVERY WITHIN 3KM FROM PHÚ NHUẬN — ORDERS FROM 100,000đ',
-      'FREE DELIVERY WITHIN 5KM FROM PHÚ NHUẬN — ORDERS FROM 200,000đ',
-    ],
+    vi: '🛵 Miễn phí giao hàng: trong 3km — đơn từ 100k   ·   trong 5km — đơn từ 200k',
+    en: '🛵 Free delivery: within 3km — orders from 100k   ·   within 5km — orders from 200k',
   },
   hero: {
     vi: {

@@ -31,10 +31,8 @@ export default function Navbar() {
   return (
     <>
       {/* Promo bar */}
-      <div className="bg-sage-100 text-forest text-center text-[12.5px] font-semibold tracking-[0.04em] py-2 px-4 flex flex-col gap-0.5">
-        {content.promo[lang].map((line, i) => (
-          <span key={i}>{line}</span>
-        ))}
+      <div className="bg-sage-100 text-forest text-center text-[12.5px] font-semibold tracking-[0.04em] py-2 px-4">
+        {content.promo[lang]}
       </div>
 
       <header
