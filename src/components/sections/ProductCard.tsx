@@ -153,25 +153,25 @@ export default function ProductCard({ product }: Props) {
         <div className="border-t border-[#F0EBE1] pt-3">
           <button
             onClick={() => setUpsize(u => !u)}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg border transition-colors duration-150 ${
+            className={`w-full flex items-center justify-between px-4 py-3.5 rounded-xl border-2 transition-all duration-150 ${
               upsize
-                ? 'border-terracotta bg-terracotta/5'
-                : 'border-[#E4DCCB] hover:border-terracotta/40 hover:bg-[#F7F4EE]'
+                ? 'border-[#F5A800] bg-[#FFD000] shadow-sm'
+                : 'border-[#FFD000] bg-[#FFF7D6] hover:bg-[#FFE84D]'
             }`}
           >
-            <div className="flex items-center gap-2">
-              <span className="text-lg">🥤</span>
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🥤</span>
               <div className="text-left">
-                <p className={`text-[13px] font-semibold leading-snug ${upsize ? 'text-terracotta' : 'text-ink-800'}`}>
-                  {lang === 'vi' ? 'Upsize ly lớn' : 'Upsize (Large cup)'}
+                <p className="text-[15px] font-bold text-[#5C3D00] leading-snug">
+                  {lang === 'vi' ? 'UPSIZE LY LỚN' : 'UPSIZE LARGE CUP'}
                 </p>
-                <p className="text-[11px] text-ink-400">+10.000đ</p>
+                <p className="text-[13px] font-semibold text-[#8A5C00]">+10.000đ</p>
               </div>
             </div>
-            <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-colors ${
-              upsize ? 'bg-terracotta border-terracotta' : 'border-[#E4DCCB]'
+            <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-colors ${
+              upsize ? 'bg-[#F5A800] border-[#F5A800]' : 'border-[#F5A800] bg-white'
             }`}>
-              {upsize && <Check size={11} strokeWidth={3} className="text-white" />}
+              {upsize && <Check size={13} strokeWidth={3} className="text-white" />}
             </div>
           </button>
         </div>
