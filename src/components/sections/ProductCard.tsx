@@ -42,6 +42,9 @@ export default function ProductCard({ product }: Props) {
     addToCart(product.id, qty, selectedToppings, selectedRequests)
     setAdded(true)
     setTimeout(() => setAdded(false), 1500)
+    setSelectedToppings([])
+    setSelectedRequests([])
+    setQty(1)
   }
 
   return (

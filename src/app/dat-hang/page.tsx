@@ -204,7 +204,7 @@ export default function DatHangPage() {
           <div className="flex flex-col">
             {cartItems.map(item => (
               <div
-                key={item.productId}
+                key={item.id}
                 className="flex items-start gap-3 py-4 border-b border-[#F0EBE1] last:border-0 last:pb-0 first:pt-0"
               >
                 {/* Swatch */}
@@ -232,7 +232,7 @@ export default function DatHangPage() {
                   {/* Qty stepper */}
                   <div className="flex items-center gap-0 mt-3 border border-[#E4DCCB] rounded-full overflow-hidden w-fit">
                     <button
-                      onClick={() => updateQty(item.productId, item.quantity - 1)}
+                      onClick={() => updateQty(item.id, item.quantity - 1)}
                       className="w-10 h-10 flex items-center justify-center text-ink-700 hover:bg-[#F0EBE1] active:bg-[#E4DCCB] transition-colors"
                       aria-label="Giảm"
                     >
@@ -242,7 +242,7 @@ export default function DatHangPage() {
                       {item.quantity}
                     </span>
                     <button
-                      onClick={() => updateQty(item.productId, item.quantity + 1)}
+                      onClick={() => updateQty(item.id, item.quantity + 1)}
                       className="w-10 h-10 flex items-center justify-center text-ink-700 hover:bg-[#F0EBE1] active:bg-[#E4DCCB] transition-colors"
                       aria-label="Tăng"
                     >
@@ -255,7 +255,7 @@ export default function DatHangPage() {
                     {formatPrice(item.product.price !== null ? itemTotal(item) : null, lang)}
                   </span>
                   <button
-                    onClick={() => removeFromCart(item.productId)}
+                    onClick={() => removeFromCart(item.id)}
                     className="text-ink-400 hover:text-red-500 transition-colors p-1.5 -mr-1"
                     aria-label={t.remove}
                   >

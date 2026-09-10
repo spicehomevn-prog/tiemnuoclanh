@@ -3,6 +3,7 @@
 import { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react'
 
 export interface CartItem {
+  id: string
   productId: string
   quantity: number
   toppings: string[]
@@ -12,13 +13,17 @@ export interface CartItem {
 interface CartContextValue {
   cart: CartItem[]
   addToCart: (productId: string, qty: number, toppings: string[], requests: string[]) => void
-  updateQty: (productId: string, qty: number) => void
-  removeFromCart: (productId: string) => void
+  updateQty: (id: string, qty: number) => void
+  removeFromCart: (id: string) => void
   clearCart: () => void
   totalItems: number
 }
 
 const CartContext = createContext<CartContextValue | null>(null)
+
+function makeId(productId: string) {
+  return `${productId}-${Date.now()}-${Math.random().toString(36).slice(2)}`
+}
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>([])
@@ -30,8 +35,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       const stored = localStorage.getItem('lanh-cart')
       if (stored) {
         const parsed = JSON.parse(stored)
-        // Migrate old cart items that may lack toppings field
-        setCart(parsed.map((item: CartItem) => ({ ...item, toppings: item.toppings ?? [], requests: item.requests ?? [] })))
+        setCart(parsed.map((item: CartItem) => ({
+          ...item,
+          id: item.id ?? makeId(item.productId),
+          toppings: item.toppings ?? [],
+          requests: item.requests ?? [],
+        })))
       }
     } catch {
       localStorage.removeItem('lanh-cart')
@@ -44,32 +53,34 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   const addToCart = useCallback((productId: string, qty: number, toppings: string[], requests: string[]) => {
     setCart(prev => {
-      const existing = prev.find(item => item.productId === productId)
+      const sortedToppings = [...toppings].sort()
+      const sortedRequests = [...requests].sort()
+      const existing = prev.find(item =>
+        item.productId === productId &&
+        JSON.stringify([...item.toppings].sort()) === JSON.stringify(sortedToppings) &&
+        JSON.stringify([...item.requests].sort()) === JSON.stringify(sortedRequests)
+      )
       if (existing) {
         return prev.map(item =>
-          item.productId === productId
-            ? { ...item, quantity: item.quantity + qty, toppings, requests }
-            : item
+          item.id === existing.id ? { ...item, quantity: item.quantity + qty } : item
         )
       }
-      return [...prev, { productId, quantity: qty, toppings, requests }]
+      return [...prev, { id: makeId(productId), productId, quantity: qty, toppings, requests }]
     })
   }, [])
 
-  const updateQty = useCallback((productId: string, qty: number) => {
+  const updateQty = useCallback((id: string, qty: number) => {
     if (qty <= 0) {
-      setCart(prev => prev.filter(item => item.productId !== productId))
+      setCart(prev => prev.filter(item => item.id !== id))
     } else {
       setCart(prev =>
-        prev.map(item =>
-          item.productId === productId ? { ...item, quantity: qty } : item
-        )
+        prev.map(item => item.id === id ? { ...item, quantity: qty } : item)
       )
     }
   }, [])
 
-  const removeFromCart = useCallback((productId: string) => {
-    setCart(prev => prev.filter(item => item.productId !== productId))
+  const removeFromCart = useCallback((id: string) => {
+    setCart(prev => prev.filter(item => item.id !== id))
   }, [])
 
   const clearCart = useCallback(() => setCart([]), [])
