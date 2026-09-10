@@ -86,12 +86,6 @@ export const products: Product[] = [
 
   // ── DỪA TƯƠI ────────────────────────────────────────────────────────────────
   {
-    id: 'dua-tuoi-ly',
-    name:        { vi: 'Dừa Tươi Ly', en: 'Fresh Coconut Juice' },
-    description: { vi: 'Nước dừa tươi nguyên chất, lạnh mát — thanh giải nhiệt tức thì.', en: 'Pure fresh coconut juice, served chilled — instantly refreshing.' },
-    price: 14000, categoryId: 'dua-tuoi', swatch: '#F0E8D8', imageSrc: null,
-  },
-  {
     id: 'dua-tuoi-sot-tac-tran-chau',
     name:        { vi: 'Dừa Tươi Sốt Tắc Trân Châu Dừa Non', en: 'Coconut Juice with Kumquat Sauce & Coconut Pearls' },
     description: { vi: 'Nước dừa tươi rưới sốt tắc chua ngọt, thêm trân châu dừa non giòn dai.', en: 'Fresh coconut juice with tangy kumquat sauce and chewy young coconut pearls.' },
