@@ -124,6 +124,12 @@ export const products: Product[] = [
     price: 27000, categoryId: 'ca-phe', swatch: '#D9CBAF', imageSrc: '/images/products/ca-phe-sua-tuoi.jpg',
   },
   {
+    id: 'bac-xiu',
+    name:        { vi: 'Bạc Xỉu', en: 'Bạc Xỉu (Milk-heavy Coffee)' },
+    description: { vi: 'Sữa đặc nhiều hơn cà phê — ngọt béo, nhẹ caffeine, dễ uống.', en: 'More condensed milk than coffee — sweet, creamy and easy to drink.' },
+    price: 25000, categoryId: 'ca-phe', swatch: '#D9CBAF', imageSrc: null,
+  },
+  {
     id: 'ca-phe-sua-dua',
     name:        { vi: 'Cà Phê Sữa Dừa', en: 'Coconut Milk Coffee' },
     description: { vi: 'Cà phê hoà quyện sữa dừa béo nhẹ — thơm dịu, khác biệt.', en: 'Coffee blended with creamy coconut milk — fragrant and unique.' },
