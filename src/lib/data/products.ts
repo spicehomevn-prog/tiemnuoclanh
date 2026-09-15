@@ -72,6 +72,12 @@ export const products: Product[] = [
     price: 25000, categoryId: 'rau-ma', signature: true, swatch: '#E3E9DD', imageSrc: '/images/products/rau-ma-sua-dua.JPG',
   },
   {
+    id: 'rau-ma-sua-dua-sot-khoai-mon',
+    name:        { vi: 'Rau Má Sữa Dừa Sốt Khoai Môn Dẻo', en: 'Pennywort Coconut Milk with Taro Sauce' },
+    description: { vi: 'Rau má sữa dừa mượt mà kết hợp sốt khoai môn dẻo thơm — màu tím đặc trưng, vị béo ngọt lạ miệng.', en: 'Smooth coconut milk pennywort layered with creamy taro sauce — striking purple hue, rich and uniquely sweet.' },
+    price: 35000, categoryId: 'rau-ma', signature: true, swatch: '#D8C8E8', imageSrc: '/images/products/rau-ma-sua-dua-sot-khoai-mon.jpg',
+  },
+  {
     id: 'rau-ma-dau-xanh-sua-dua',
     name:        { vi: 'Rau Má Đậu Xanh Sữa Dừa', en: 'Mung Bean Coconut Milk Pennywort' },
     description: { vi: 'Bộ ba hoàn hảo: rau má tươi, đậu xanh và sữa dừa — đậm đà, bổ dưỡng.', en: 'The perfect trio: fresh pennywort, mung bean and coconut milk.' },
