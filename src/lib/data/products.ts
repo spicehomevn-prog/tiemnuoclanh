@@ -127,7 +127,7 @@ export const products: Product[] = [
     id: 'bac-xiu',
     name:        { vi: 'Bạc Xỉu', en: 'Bạc Xỉu (Milk-heavy Coffee)' },
     description: { vi: 'Sữa đặc nhiều hơn cà phê — ngọt béo, nhẹ caffeine, dễ uống.', en: 'More condensed milk than coffee — sweet, creamy and easy to drink.' },
-    price: 25000, categoryId: 'ca-phe', swatch: '#D9CBAF', imageSrc: null,
+    price: 25000, categoryId: 'ca-phe', swatch: '#D9CBAF', imageSrc: '/images/products/bac-xiu.jpg',
   },
   {
     id: 'ca-phe-sua-dua',
