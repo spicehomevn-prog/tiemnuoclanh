@@ -115,13 +115,13 @@ export const products: Product[] = [
     id: 'ca-phe-sua',
     name:        { vi: 'Cà Phê Sữa', en: 'Vietnamese Iced Coffee' },
     description: { vi: 'Cà phê đen pha sữa đặc — đậm ngọt kiểu truyền thống Việt.', en: 'Drip coffee with condensed milk — classic Vietnamese style.' },
-    price: 20000, categoryId: 'ca-phe', swatch: '#D9CBAF', imageSrc: '/images/products/ca-phe-sua.jpg',
+    price: 23000, categoryId: 'ca-phe', swatch: '#D9CBAF', imageSrc: '/images/products/ca-phe-sua.jpg',
   },
   {
     id: 'ca-phe-sua-tuoi',
     name:        { vi: 'Cà Phê Sữa Tươi', en: 'Coffee with Fresh Milk' },
     description: { vi: 'Cà phê phin pha cùng sữa tươi — vị dịu nhẹ, thanh hơn sữa đặc.', en: 'Drip coffee with fresh milk — lighter and smoother.' },
-    price: 25000, categoryId: 'ca-phe', swatch: '#D9CBAF', imageSrc: '/images/products/ca-phe-sua-tuoi.jpg',
+    price: 27000, categoryId: 'ca-phe', swatch: '#D9CBAF', imageSrc: '/images/products/ca-phe-sua-tuoi.jpg',
   },
   {
     id: 'ca-phe-sua-dua',
